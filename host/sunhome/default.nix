@@ -1,7 +1,5 @@
 { ... }: {
   imports = [
-    /etc/nixos/hardware-configuration.nix
-
     ../../nixos-module/user/aurelia.nix
     ../../nixos-module/user/cassandra.nix
 
