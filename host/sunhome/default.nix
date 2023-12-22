@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
     ../../nixos-module/user/aurelia.nix
     ../../nixos-module/user/cassandra.nix

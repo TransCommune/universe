@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   requiredMounts = [
     # samba
@@ -12,7 +13,7 @@ let
     "magpie-apps-seafile.mount"
   ];
 in
-{ pkgs, ... }: {
+{
   systemd.targets.magpie = {
     description = "The ZFS NAS mount";
     requires = requiredMounts;
@@ -26,7 +27,7 @@ in
       Type = "oneshot";
     };
 
-    path = with pkgs; [ zfs-user ];
+    path = with pkgs; [ zfs ];
     script = ''
       #!/usr/bin/env bash
 
