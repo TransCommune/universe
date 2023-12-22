@@ -1,4 +1,9 @@
 { ... }: {
+  systemd.targets.samba = {
+    after = [ "magpie.target" ];
+    requires = [ "magpie.target" ];
+  };
+
   services.samba = {
     enable = true;
     openFirewall = true;
