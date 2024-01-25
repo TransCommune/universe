@@ -19,25 +19,7 @@ in
     requires = requiredMounts;
     after = requiredMounts;
   };
-
-  systemd.services.zfs-import = {
-    description = "Imports all available ZFS pools.";
-    wantedBy = [ "default.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-    };
-
-    path = with pkgs; [ zfs ];
-    script = ''
-      #!/usr/bin/env bash
-
-      set -eux -o pipefail
-
-      zpool import -a
-      zfs load-key -ar
-    '';
-  };
-
+  boot.supportedFilesystems = [ "zfs" ];
   services.zfs = {
     autoScrub = {
       enable = true;
