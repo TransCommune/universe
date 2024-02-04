@@ -2,10 +2,14 @@
   description = "The Commune's NixOS / whatever flake";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+  inputs.quadlet.url = "github:SEIAROTg/quadlet-nix";
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs, quadlet }: {
     nixosModules = {
-      sunhome = ./host/sunhome;
+      sunhome = [
+        ./host/sunhome
+        quadlet.nixosModules.quadlet
+      ];
     };
     nixosConfigurations = {
       sunhome = nixpkgs.lib.nixosSystem {
@@ -13,6 +17,7 @@
         modules = [
           ./host/sunhome
           ./host/sunhome/hardware-configuration.nix
+          quadlet.nixosModules.quadlet
         ];
       };
     };

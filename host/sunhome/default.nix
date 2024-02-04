@@ -7,6 +7,8 @@
 
     ./zfs.nix
     ./samba.nix
+
+    ./container/unifi.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
