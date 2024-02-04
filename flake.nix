@@ -12,6 +12,7 @@
         system = "x86_64-linux";
         modules = [
           ./host/sunhome
+          ./host/sunhome/hardware-configuration.nix
         ];
       };
     };

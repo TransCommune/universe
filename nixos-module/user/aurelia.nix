@@ -3,7 +3,7 @@
     isNormalUser = true;
     description = "Aurelia";
     shell = pkgs.fish;
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
   };
   programs.fish.enable = true;
 }

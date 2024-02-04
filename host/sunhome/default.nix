@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   imports = [
     ../../nixos-module/user/aurelia.nix
     ../../nixos-module/user/cassandra.nix
@@ -11,12 +11,19 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.luks.devices."luks-root".device = "/dev/nvme0n1p2";
+  boot.zfs.forceImportRoot = false;
+  boot.initrd.systemd.enable = true;
+
+  # fix for crappy Intel 2.5GbE
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
   networking.hostName = "sunhome";
-  networking.hostId = "7021b014";
+  networking.hostId = "5ffb3d23";
 
-  networking.firewall.enable = false;
   networking.networkmanager.enable = true;
+  services.tailscale.enable = true;
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
   system.stateVersion = "23.11";
 }
