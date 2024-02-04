@@ -9,6 +9,7 @@
     ./samba.nix
 
     ./container/unifi.nix
+    ./container/homeassistant.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
