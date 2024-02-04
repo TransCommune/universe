@@ -2,7 +2,10 @@
   description = "The Commune's NixOS / whatever flake";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-  inputs.quadlet.url = "github:SEIAROTg/quadlet-nix";
+  inputs.quadlet = {
+    url = "github:SEIAROTg/quadlet-nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   outputs = { self, nixpkgs, quadlet }: {
     nixosModules = {
