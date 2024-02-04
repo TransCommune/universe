@@ -20,7 +20,7 @@
         "1883:1883/tcp"
       ];
       volumes = [
-        "/etc/mosquitto:/mosquitto/config:ro"
+        "/etc/mosquitto/mosquitto.conf:/etc/mosquitto/mosquitto.conf"
         "/magpie/apps/homeassistant/mosquitto_data:/mosquitto/data:U"
       ];
     };
