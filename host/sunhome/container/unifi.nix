@@ -1,5 +1,5 @@
 { ... }: {
-  virtualization.quadlet.containers.unifi = {
+  virtualisation.quadlet.containers.unifi = {
     unitConfig.After = [ "magpie.target" ];
     unitConfig.Wants = [ "magpie.target" ];
 
