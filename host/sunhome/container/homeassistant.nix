@@ -12,6 +12,9 @@
     unitConfig = {
       After = [ "magpie.target" ];
       Wants = [ "magpie.target" ];
+      RequiresMountsFor = [
+        "/magpie/apps/homeassistant"
+      ];
     };
 
     containerConfig = {
@@ -30,6 +33,9 @@
     unitConfig = {
       After = [ "magpie.target" ];
       Wants = [ "magpie.target" ];
+      RequiresMountsFor = [
+        "/magpie/apps/homeassistant"
+      ];
     };
 
     containerConfig = {

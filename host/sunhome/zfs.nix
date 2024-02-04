@@ -1,29 +1,11 @@
 { pkgs, ... }:
-let
-  requiredMounts = [
-    # samba
-    "magpie-media.mount"
-    "magpie-aurelia-scratch.mount"
-    "magpie-aurelia-macrium.mount"
-    "magpie-aurelia-tm\\x2dpersonal.mount"
-    "magpie-phoenix-personal.mount"
-
-    # containers
-    "magpie-apps-photoprism.mount"
-    "magpie-apps-seafile.mount"
-  ];
-in
 {
   systemd.targets.magpie = {
     description = "The ZFS NAS mount";
-    requires = requiredMounts;
-    after = requiredMounts;
+    requires = [ "zfs-import-all.service" ];
   };
 
   systemd.services."zfs-import-all" = {
-    before = [ "magpie.target" ];
-    wantedBy = [ "magpie.target" ];
-
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;

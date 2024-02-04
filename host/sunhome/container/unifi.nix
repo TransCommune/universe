@@ -1,7 +1,12 @@
 { ... }: {
   virtualisation.quadlet.containers.unifi = {
-    unitConfig.After = [ "magpie.target" ];
-    unitConfig.Wants = [ "magpie.target" ];
+    unitConfig = {
+      After = [ "magpie.target" ];
+      Wants = [ "magpie.target" ];
+      RequiresMountsFor = [
+        "/magpie/apps/unifi"
+      ];
+    };
 
     containerConfig = {
       image = "docker.io/jacobalberty/unifi:v8";
