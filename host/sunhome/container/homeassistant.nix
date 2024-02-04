@@ -43,7 +43,7 @@
   };
   networking.firewall.allowedTCPPorts = [
     8123 # UI
-    21063 # homekit
+    21064 # homekit
   ];
 
 }
