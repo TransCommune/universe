@@ -8,7 +8,7 @@
       environments.TZ = "Europe/Amsterdam";
       user = "unifi";
       volumes = [
-        "/magpie/apps/unifi:unifi:U"
+        "/magpie/apps/unifi:/unifi:U"
       ];
       publishPorts = [
         "8080:8080/tcp"
