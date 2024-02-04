@@ -27,6 +27,7 @@
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  networking.firewall.enable = false; # required for HomeKit
 
   security.sudo.wheelNeedsPassword = false;
 
