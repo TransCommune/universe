@@ -25,5 +25,9 @@
   services.tailscale.enable = true;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
+  security.sudo.wheelNeedsPassword = false;
+
+  virtualisation.podman.enable = true;
+
   system.stateVersion = "23.11";
 }
