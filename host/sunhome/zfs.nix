@@ -19,6 +19,24 @@ in
     requires = requiredMounts;
     after = requiredMounts;
   };
+
+  systemd.services."zfs-import-all" = {
+    before = [ "magpie.target" ];
+    wantedBy = [ "magpie.target" ];
+
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+
+    script = ''
+      set -eux -o pipefail
+      ${pkgs.zfs}/bin/zpool import -a
+      ${pkgs.zfs}/bin/zfs load-key -a
+      ${pkgs.zfs}/bin/zfs mount -a
+    '';
+  };
+
   boot.supportedFilesystems = [ "zfs" ];
   services.zfs = {
     autoScrub = {
