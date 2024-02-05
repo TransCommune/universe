@@ -7,6 +7,7 @@
 
     ./zfs.nix
     ./samba.nix
+    ./libvirt.nix
 
     ./container/unifi.nix
     ./container/homeassistant.nix
