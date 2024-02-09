@@ -11,6 +11,7 @@
 
     ./container/unifi.nix
     ./container/homeassistant.nix
+    ./container/rustdesk.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
