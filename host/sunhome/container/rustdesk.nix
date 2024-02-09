@@ -10,7 +10,7 @@
     };
     containerConfig = {
       image = "docker.io/rustdesk/rustdesk-server:latest";
-      exec = [ "hbbs -r 192.168.2.250" ];
+      exec = "hbbs -r 192.168.2.250";
       volumes = [ "/magpie/apps/rustdesk:/data:U" ];
       publishPorts = [
         "21115:21115/tcp"
@@ -31,7 +31,7 @@
     };
     containerConfig = {
       image = "docker.io/rustdesk/rustdesk-server:latest";
-      exec = [ "hbbr" ];
+      exec = "hbbr";
       volumes = [ "/magpie/apps/rustdesk:/data:U" ];
       publishPorts = [
         "21117:21117/tcp"
