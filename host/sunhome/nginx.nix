@@ -18,7 +18,7 @@
     };
 
     virtualHosts."89.1.7.228" = {
-      addSSL = true;
+      rejectSSL = true;
       default = true;
       locations."/" = {
         return = "404";
