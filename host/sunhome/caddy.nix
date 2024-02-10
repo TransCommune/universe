@@ -5,7 +5,7 @@
       "seafile.nullvoid.space" = {
         extraConfig = ''
           encode gzip
-          reverse_proxy 127.0.0.1:9093
+          reverse_proxy 127.0.0.1:8083
         '';
       };
     };
