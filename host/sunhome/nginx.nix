@@ -16,6 +16,15 @@
         proxyWebsockets = true;
       };
     };
+
+    virtualHosts."89.1.7.228" = {
+      addSSL = true;
+      enableACME = true;
+      default = true;
+      locations."/" = {
+        return = "404";
+      };
+    };
   };
 
   security.acme = {
