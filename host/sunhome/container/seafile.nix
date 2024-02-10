@@ -42,7 +42,7 @@
       environments = {
         "MYSQL_LOG_CONSOLE" = "true";
       };
-      networks = [ "seafile.network" ];\
+      networks = [ "seafile.network" ];
     };
     unitConfig = {
       After = [ "magpie.target" ];
