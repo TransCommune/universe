@@ -16,6 +16,10 @@
     ./container/seafile.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    restic
+  ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.luks.devices."luks-root".device = "/dev/nvme0n1p2";
