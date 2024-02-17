@@ -18,6 +18,9 @@
       use sendfile = yes
       min receivefile size = 16384
 
+      aio read size = 16384
+      aio write size = 16384
+
       vfs objects = catia fruit streams_xattr
 
       fruit:nfs_aces = no
