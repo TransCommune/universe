@@ -16,7 +16,7 @@
         proxyWebsockets = true;
         extraConfig = ''
           client_max_body_size 256M;
-        ''
+        '';
       };
     };
 
