@@ -49,7 +49,7 @@
         extraConfig = ''
           allow 192.168.0.0/16;
           deny all;
-          resolver 1.1.1.1;
+          resolver 1.1.1.1 ipv6=off valid=120s;
           proxy_cache steam;
           proxy_cache_valid  200 302  60d;
           expires max;
