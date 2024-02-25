@@ -21,13 +21,12 @@
 
     eventsConfig = ''
       accept_mutex off;
-      worker_processes auto;
-      worker_connections 1024;
       use epoll;
     '';
 
     appendConfig = ''
-
+      worker_processes auto;
+      worker_connections 1024;
     '';
 
     virtualHosts."seafile.nullvoid.space" = {
