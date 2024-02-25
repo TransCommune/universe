@@ -43,7 +43,7 @@
     virtualHosts."*.steamcontent.com" = {
       rejectSSL = true;
       locations."/" = {
-        proxyPass = "http://$host$uri$is_args$args";
+        proxyPass = "http://$host$request_uri";
         extraConfig = ''
           deny all;
           allow 192.168.0.0/16;
