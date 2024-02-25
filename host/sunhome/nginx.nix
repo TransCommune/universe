@@ -8,6 +8,18 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
 
+    appendHttpConfig = ''
+      proxy_cache_path /magpie/apps/nginxcache levels=1:2 keys_zone=steam:256m max_size=2000g inactive=365d use_temp_path=off;
+      
+      # Cache only success status codes; in particular we don't want to cache 404s.
+      # See https://serverfault.com/a/690258/128321
+      map $status $cache_header {
+        200     "public";
+        302     "public";
+        default "no-cache";
+      }
+    '';
+
     virtualHosts."seafile.nullvoid.space" = {
       addSSL = true;
       enableACME = true;
@@ -25,6 +37,20 @@
       default = true;
       locations."/" = {
         return = "404";
+      };
+    };
+
+    virtualHosts."*.steamcontent.com" = {
+      rejectSSL = true;
+      locations."/" = {
+        proxyPass = "http://$http_host$uri$is_args$args;";
+        extraConfig = ''
+          resolver 1.1.1.1;
+          proxy_cache steam;
+          proxy_cache_valid  200 302  60d;
+          expires max;
+          add_header Cache-Control $cache_header always;
+        '';
       };
     };
   };
