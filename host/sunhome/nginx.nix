@@ -21,7 +21,7 @@
 
     eventsConfig = ''
       accept_mutex off;
-      worker_process auto;
+      worker_processes auto;
       worker_connections 1024;
       use epoll;
     '';
