@@ -11,15 +11,8 @@
     recommendedTlsSettings = true;
 
     appendHttpConfig = ''
-      proxy_cache_path /magpie/apps/nginxcache levels=1:2 keys_zone=steam:256m max_size=2000g inactive=365d use_temp_path=off;
-      
-      # Cache only success status codes; in particular we don't want to cache 404s.
-      # See https://serverfault.com/a/690258/128321
-      map $status $cache_header {
-        200     "public";
-        302     "public";
-        default "no-cache";
-      }
+      proxy_cache_path /magpie/apps/nginxcache/steam levels=2:2 keys_zone=steam:256m max_size=4000g use_temp_path=off loader_files=1000 loader_sleep=50ms loader_threshold=300ms;
+      worker_processes 16;
     '';
 
     virtualHosts."seafile.nullvoid.space" = {
@@ -51,9 +44,13 @@
           deny all;
           resolver 1.1.1.1 ipv6=off valid=120s;
           proxy_cache steam;
-          proxy_cache_key $request_uri;
+          proxy_cache_key $cacheidentifier$uri$slice_range;
+          slice 1m;
           expires max;
-          add_header Cache-Control $cache_header always;
+          proxy_cache_valid 301 302 0;
+          proxy_cache_lock on;
+          proxy_cache_lock_age 2m;
+          proxy_cache_lock_timeout 1h;
         '';
       };
     };
