@@ -1,4 +1,4 @@
-{ ... }: 
+{ pkgs, ... }: 
 {
   systemd.services.nginx.serviceConfig.ReadWritePaths = "/magpie/apps/nginxcache";
 
