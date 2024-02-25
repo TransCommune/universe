@@ -43,8 +43,10 @@
     virtualHosts."*.steamcontent.com" = {
       rejectSSL = true;
       locations."/" = {
-        proxyPass = "http://$http_host$uri$is_args$args";
+        proxyPass = "http://$host$uri$is_args$args";
         extraConfig = ''
+          deny all;
+          allow 192.168.0.0/16;
           resolver 1.1.1.1;
           proxy_cache steam;
           proxy_cache_valid  200 302  60d;
