@@ -2,7 +2,9 @@
 {
   services.nginx = {
     enable = true;
-    
+
+    serviceConfig.ReadWritePaths = "/magpie/apps/nginxcache";
+
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
