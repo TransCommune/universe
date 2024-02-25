@@ -45,8 +45,8 @@
       locations."/" = {
         proxyPass = "http://$host$request_uri";
         extraConfig = ''
-          deny all;
           allow 192.168.0.0/16;
+          deny all;
           resolver 1.1.1.1;
           proxy_cache steam;
           proxy_cache_valid  200 302  60d;
