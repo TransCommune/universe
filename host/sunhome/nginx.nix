@@ -14,7 +14,7 @@
     recommendedTlsSettings = true;
 
     appendHttpConfig = ''
-      proxy_cache_path /magpie/apps/nginxcache/steam levels=2:2 keys_zone=steam:256m max_size=4000g use_temp_path=off loader_files=1000 loader_sleep=50ms loader_threshold=300ms;
+      proxy_cache_path /magpie/apps/nginxcache/steam levels=2:2 keys_zone=steam:256m max_size=4000g use_temp_path=off loader_files=1000 loader_sleep=50ms loader_threshold=300ms inactive=3650d;
     '';
 
     virtualHosts."seafile.nullvoid.space" = {
