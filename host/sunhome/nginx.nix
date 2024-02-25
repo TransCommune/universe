@@ -1,9 +1,9 @@
 { ... }: 
 {
+  systemd.services.nginx.serviceConfig.ReadWritePaths = "/magpie/apps/nginxcache";
+
   services.nginx = {
     enable = true;
-
-    serviceConfig.ReadWritePaths = "/magpie/apps/nginxcache";
 
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
