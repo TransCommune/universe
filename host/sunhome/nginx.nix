@@ -52,6 +52,7 @@
           resolver 1.1.1.1 ipv6=off valid=120s;
           proxy_cache steam;
           proxy_cache_valid  200 302  60d;
+          proxy_cache_key $request_uri;
           expires max;
           add_header Cache-Control $cache_header always;
         '';
