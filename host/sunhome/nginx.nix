@@ -46,7 +46,7 @@
           deny all;
           resolver 1.1.1.1 ipv6=off valid=120s;
           proxy_cache steam;
-          proxy_cache_key $cacheidentifier$uri$slice_range;
+          proxy_cache_key "steam-$uri$slice_range";
           slice 1m;
           expires max;
           proxy_cache_valid 301 302 0;
