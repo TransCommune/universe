@@ -4,6 +4,9 @@
 
   services.nginx = {
     enable = true;
+    package = pkgs.nginxStable.override {
+      withSlice = true;
+    };
 
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
