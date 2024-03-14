@@ -11,7 +11,7 @@ in {
       image = "ghcr.io/immich-app/immich-server:${version}";
       volumes = [
         "/magpie/apps/immich/upload:/usr/src/app/upload:U"
-        "/etc/localtime:/etc/localtime:ro"
+        #"/etc/localtime:/etc/localtime:ro"
       ];
       exec = "start.sh immich";
       environmentFiles = [
@@ -47,7 +47,7 @@ in {
       image = "ghcr.io/immich-app/immich-server:${version}";
       volumes = [
         "/magpie/apps/immich/upload:/usr/src/app/upload:U"
-        "/etc/localtime:/etc/localtime:ro"
+        #"/etc/localtime:/etc/localtime:ro"
       ];
       exec = "start.sh microservices";
       environmentFiles = [
@@ -71,7 +71,7 @@ in {
       image = "ghcr.io/immich-app/immich-machine-learning:${version}";
       volumes = [
         "/magpie/apps/immich/model-cache:/cache:U"
-        "/etc/localtime:/etc/localtime:ro"
+        #"/etc/localtime:/etc/localtime:ro"
       ];
       exec = "start.sh microservices";
       environmentFiles = [
@@ -104,7 +104,7 @@ in {
       image = "${postgresImage}";
       volumes = [
         "/magpie/apps/immich/postgres:/var/lib/postgresql/data:U"
-        "/etc/localtime:/etc/localtime:ro"
+        #"/etc/localtime:/etc/localtime:ro"
       ];
       environmentFiles = [
         "/etc/immich-postgres.env"
