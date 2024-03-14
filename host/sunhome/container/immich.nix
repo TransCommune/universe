@@ -73,7 +73,6 @@ in {
         "/magpie/apps/immich/model-cache:/cache:U"
         #"/etc/localtime:/etc/localtime:ro"
       ];
-      exec = "start.sh microservices";
       environmentFiles = [
         "/etc/immich.env"
       ];
