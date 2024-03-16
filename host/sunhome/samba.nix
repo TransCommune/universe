@@ -1,7 +1,7 @@
-{ ... }: {
+{...}: {
   systemd.targets.samba = {
-    after = [ "magpie.target" ];
-    requires = [ "magpie.target" ];
+    after = ["magpie.target"];
+    requires = ["magpie.target"];
   };
 
   services.samba = {
@@ -34,8 +34,8 @@
         path = "/magpie/media";
         browseable = true;
         writeable = true;
-        "force user" = "nobody";
-        "force group" = "nobody";
+        "force user" = "nas";
+        "force group" = "nas";
         "valid users" = "aurelia sapphiccode";
         "create mask" = "0660";
         "directory mask" = "0770";
@@ -46,8 +46,8 @@
         path = "/magpie/media";
         browseable = true;
         "read only" = true;
-        "force user" = "nobody";
-        "force group" = "nobody";
+        "force user" = "nas";
+        "force group" = "nas";
         "guest ok" = true;
         "guest only" = true;
       };

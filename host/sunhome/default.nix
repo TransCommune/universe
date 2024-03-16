@@ -1,9 +1,14 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ../../nixos-module/user/aurelia.nix
     ../../nixos-module/user/cassandra.nix
 
     ../../nixos-module/openssh.nix
+    ../../nixos-module/user/nas.nix
 
     ./zfs.nix
     ./samba.nix
@@ -35,7 +40,7 @@
 
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  networking.firewall.trustedInterfaces = ["tailscale0"];
   networking.firewall.enable = false; # required for HomeKit
 
   security.sudo.wheelNeedsPassword = false;
