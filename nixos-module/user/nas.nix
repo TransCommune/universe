@@ -20,6 +20,12 @@
     home = "/home/nas";
 
     shell = pkgs.fish;
+    packages = with pkgs; [
+      nu
+      rclone
+      restic
+      yt-dlp
+    ];
   };
   programs.fish.enable = true;
 }
