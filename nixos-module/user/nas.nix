@@ -21,10 +21,12 @@
 
     shell = pkgs.fish;
     packages = with pkgs; [
-      nu
+      nushell
       rclone
       restic
       yt-dlp
+      ffmpeg
+      exiftool
     ];
   };
   programs.fish.enable = true;
