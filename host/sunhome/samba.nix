@@ -42,6 +42,7 @@
         "force create mode" = "0660";
         "force directory mode" = "0770";
       };
+
       media_ro = {
         path = "/magpie/media";
         browseable = true;
@@ -57,30 +58,8 @@
         browseable = true;
         writable = true;
         "valid users" = "aurelia";
-        "force group" = "users";
-        "force create mode" = "0660";
-        "force directory mode" = "0770";
-      };
-      aurelia_timemachine = {
-        path = "/magpie/aurelia/tm-personal";
-        browseable = true;
-        writable = true;
-        "valid users" = "aurelia";
-        "force group" = "users";
-        "force create mode" = "0660";
-        "force directory mode" = "0770";
-
-        "fruit:time machine" = true;
-        "fruit:time machine max size" = "1T";
-      };
-      aurelia_macrium = {
-        path = "/magpie/aurelia/macrium";
-        browseable = true;
-        writable = true;
-        "valid users" = "aurelia";
-        "force group" = "users";
-        "force create mode" = "0660";
-        "force directory mode" = "0770";
+        "force create mode" = "0600";
+        "force directory mode" = "0700";
       };
 
       phoenix = {
