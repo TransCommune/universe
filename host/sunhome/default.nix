@@ -47,5 +47,7 @@
 
   virtualisation.podman.enable = true;
 
+  services.jellyfin.enable = true;
+
   system.stateVersion = "23.11";
 }
