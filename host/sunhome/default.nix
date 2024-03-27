@@ -22,8 +22,14 @@
     ./container/seafile.nix
   ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   environment.systemPackages = with pkgs; [
     restic
+    tmux
+    htop
+    btop
+    pv
   ];
 
   boot.loader.systemd-boot.enable = true;
