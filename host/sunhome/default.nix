@@ -42,9 +42,6 @@
     ssh = {
       enable = true;
       port = 2222;
-      hostRSAKey = /boot/dropbear_rsa_host_key;
-      hostECDSAKey = /boot/dropbear_ecdsa_host_key;
-      hostDSSKey = /boot/dropbear_dss_host_key;
       # this includes the ssh keys of all users in the wheel group, but you can just specify some keys manually
       # authorizedKeys = [ "ssh-rsa ..." ];
       authorizedKeys = with lib; concatLists (mapAttrsToList (name: user: if elem "wheel" user.extraGroups then user.openssh.authorizedKeys.keys else []) config.users.users);
