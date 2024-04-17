@@ -64,29 +64,6 @@ in {
     };
   };
 
-  virtualisation.quadlet.containers.immich-machine-learning = {
-    containerConfig = {
-      name = "immich_machine_learning";
-      hostname = "immich_machine_learning";
-      image = "ghcr.io/immich-app/immich-machine-learning:${version}";
-      volumes = [
-        "/magpie/apps/immich/model-cache:/cache:U"
-        #"/etc/localtime:/etc/localtime:ro"
-      ];
-      environmentFiles = [
-        "/etc/immich.env"
-      ];
-      networks = [ "immich.network" ];
-    };
-    unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
-      RequiresMountsFor = [
-        "/magpie/apps/immich"
-      ];
-    };
-  };
-
   virtualisation.quadlet.containers.immich-redis = {
     containerConfig = {
       name = "immich_redis";
