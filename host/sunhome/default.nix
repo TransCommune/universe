@@ -25,6 +25,11 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  services.cockpit = {
+    enable = true;
+    openFirewall = true;
+  };
+
   environment.systemPackages = with pkgs; [
     restic
     tmux
