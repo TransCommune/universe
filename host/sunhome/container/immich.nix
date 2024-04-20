@@ -11,7 +11,7 @@ in {
       image = "ghcr.io/immich-app/immich-server:${version}";
       volumes = [
         "/magpie/apps/immich/upload:/usr/src/app/upload:U"
-        #"/etc/localtime:/etc/localtime:ro"
+        "/etc/immich-localtime:/etc/localtime:ro"
       ];
       exec = "start.sh immich";
       environmentFiles = [
@@ -47,9 +47,32 @@ in {
       image = "ghcr.io/immich-app/immich-server:${version}";
       volumes = [
         "/magpie/apps/immich/upload:/usr/src/app/upload:U"
-        #"/etc/localtime:/etc/localtime:ro"
+        "/etc/immich-localtime:/etc/localtime:ro"
       ];
       exec = "start.sh microservices";
+      environmentFiles = [
+        "/etc/immich.env"
+      ];
+      networks = [ "immich.network" ];
+    };
+    unitConfig = {
+      After = [ "magpie.target" ];
+      Wants = [ "magpie.target" ];
+      RequiresMountsFor = [
+        "/magpie/apps/immich"
+      ];
+    };
+  };
+
+  virtualisation.quadlet.containers.immich-machine-learning = {
+    containerConfig = {
+      name = "immich_machine_learning";
+      hostname = "immich_machine_learning";
+      image = "ghcr.io/immich-app/immich-machine-learning:${version}";
+      volumes = [
+        "/magpie/apps/immich/model-cache:/cache:U"
+        "/etc/immich-localtime:/etc/localtime:ro"
+      ];
       environmentFiles = [
         "/etc/immich.env"
       ];
