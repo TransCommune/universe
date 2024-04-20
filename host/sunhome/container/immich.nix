@@ -1,5 +1,5 @@
 { ... }: let
-  version = "v1.100.0@sha256:7fb2ebe9ec97207fd55714c2f33da69aa01e79fdb846bec61f0b486b36ee6324";
+  version = "v1.102.3@sha256:4a8f4727abeb8fe4e94f3c41d131cb6ef4f367fbc074ccaeaf5fddd73b4ed20d";
   redisImage = "registry.hub.docker.com/library/redis:6.2-alpine@sha256:51d6c56749a4243096327e3fb964a48ed92254357108449cb6e23999c37773c5";
   postgresImage = "registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0";
 in {
