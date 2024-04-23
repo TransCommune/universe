@@ -1,5 +1,6 @@
 { ... }: let
   version = "v1.102.3@sha256:4a8f4727abeb8fe4e94f3c41d131cb6ef4f367fbc074ccaeaf5fddd73b4ed20d";
+  versionML = "v1.102.2@sha256:1b65671c680825e975ffd66b6273dd3009a3af573903c08c125f66683eb9f910";
   redisImage = "registry.hub.docker.com/library/redis:6.2-alpine@sha256:51d6c56749a4243096327e3fb964a48ed92254357108449cb6e23999c37773c5";
   postgresImage = "registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0";
 in {
@@ -68,7 +69,7 @@ in {
     containerConfig = {
       name = "immich_machine_learning";
       hostname = "immich_machine_learning";
-      image = "ghcr.io/immich-app/immich-machine-learning:${version}";
+      image = "ghcr.io/immich-app/immich-machine-learning:${versionML}";
       volumes = [
         "/magpie/apps/immich/model-cache:/cache:U"
         "/etc/immich-localtime:/etc/localtime:ro"
