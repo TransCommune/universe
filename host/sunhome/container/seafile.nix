@@ -16,6 +16,7 @@
       };
       publishPorts = [
         "127.0.0.1:8083:80"
+        "127.0.0.1:8084:8080"
       ];
       networks = [ "seafile.network" ];
     };
