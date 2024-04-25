@@ -38,6 +38,13 @@
           client_max_body_size 256M;
         '';
       };
+      locations."/seafdav" = {
+        proxyPass = "http://127.0.0.1:8084/seafdav";
+        proxyWebsockets = true;
+        extraConfig = ''
+          client_max_body_size 0;
+        '';
+      };
     };
 
     virtualHosts."immich.nullvoid.space" = {
