@@ -4,7 +4,7 @@
     containerConfig = {
       name = "seafile";
       hostname = "seafile";
-      image = "docker.io/seafileltd/seafile-mc:latest";
+      image = "docker.io/seafileltd/seafile-mc:11.0.8";
       volumes = [
         "/magpie/apps/seafile/data:/shared"
       ];
