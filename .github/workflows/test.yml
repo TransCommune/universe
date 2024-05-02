@@ -1,0 +1,20 @@
+name: Test
+on:
+  push:
+  pull_request:
+jobs:
+  build-nixos:
+    strategy:
+      matrix:
+        host:
+          - sunhome
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v22
+      - uses: actions/cache@v3
+        with:
+          key: ${{ matrix.host }}
+          path: |
+            /nix/store
+      - run: nix run github:nix-community/nixos-generators -- --flake .#${{ matrix.host }} --format iso
