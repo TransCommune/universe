@@ -1,8 +1,8 @@
-{ ... }: {
+{...}: {
   virtualisation.quadlet.containers.unifi = {
     unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
+      After = ["magpie.target"];
+      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/magpie/apps/unifi"
       ];

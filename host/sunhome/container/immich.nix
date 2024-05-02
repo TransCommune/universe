@@ -1,4 +1,4 @@
-{ ... }: let
+{...}: let
   version = "v1.102.3@sha256:4a8f4727abeb8fe4e94f3c41d131cb6ef4f367fbc074ccaeaf5fddd73b4ed20d";
   versionML = "v1.102.2@sha256:1b65671c680825e975ffd66b6273dd3009a3af573903c08c125f66683eb9f910";
   redisImage = "registry.hub.docker.com/library/redis:6.2-alpine@sha256:51d6c56749a4243096327e3fb964a48ed92254357108449cb6e23999c37773c5";
@@ -22,19 +22,19 @@ in {
         "TIME_ZONE" = "Etc/UTC";
         "UPLOAD_LOCATION" = "./library";
         "IMMICH_VERSION" = "release";
-        "DB_HOSTNAME"="immich_postgres";
-        "DB_USERNAME"="postgres";
-        "DB_DATABASE_NAME"="immich";
-        "REDIS_HOSTNAME"="immich_redis";
+        "DB_HOSTNAME" = "immich_postgres";
+        "DB_USERNAME" = "postgres";
+        "DB_DATABASE_NAME" = "immich";
+        "REDIS_HOSTNAME" = "immich_redis";
       };
       publishPorts = [
         "127.0.0.1:2283:3001"
       ];
-      networks = [ "immich.network" ];
+      networks = ["immich.network"];
     };
     unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
+      After = ["magpie.target"];
+      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/magpie/apps/immich"
       ];
@@ -54,11 +54,11 @@ in {
       environmentFiles = [
         "/etc/immich.env"
       ];
-      networks = [ "immich.network" ];
+      networks = ["immich.network"];
     };
     unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
+      After = ["magpie.target"];
+      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/magpie/apps/immich"
       ];
@@ -77,11 +77,11 @@ in {
       environmentFiles = [
         "/etc/immich.env"
       ];
-      networks = [ "immich.network" ];
+      networks = ["immich.network"];
     };
     unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
+      After = ["magpie.target"];
+      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/magpie/apps/immich"
       ];
@@ -93,7 +93,7 @@ in {
       name = "immich_redis";
       hostname = "immich_redis";
       image = "${redisImage}";
-      networks = [ "immich.network" ];
+      networks = ["immich.network"];
     };
   };
 
@@ -109,11 +109,11 @@ in {
       environmentFiles = [
         "/etc/immich-postgres.env"
       ];
-      networks = [ "immich.network" ];
+      networks = ["immich.network"];
     };
     unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
+      After = ["magpie.target"];
+      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/magpie/apps/immich"
       ];
