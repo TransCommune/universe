@@ -51,5 +51,6 @@
     timerConfig = {
       OnCalendar = "03:00";
     };
+    wantedBy = ["timers.target"];
   };
 }
