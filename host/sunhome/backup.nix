@@ -10,6 +10,7 @@
 
       Type = "simple";
       User = "root";
+      Environment = "PATH=${pkgs.openssh}/bin:$PATH";
       ExecStart = pkgs.writeScript "backup" ''
         #!${pkgs.nushell}/bin/nu
 
