@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   environment.etc."mosquitto/mosquitto.conf".text = ''
     persistence true
     persistence_location /mosquitto/data
@@ -10,8 +10,8 @@
   '';
   virtualisation.quadlet.containers.mqtt = {
     unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
+      After = ["magpie.target"];
+      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/magpie/apps/homeassistant"
       ];
@@ -31,8 +31,8 @@
 
   virtualisation.quadlet.containers.homeassistant = {
     unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
+      After = ["magpie.target"];
+      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/magpie/apps/homeassistant"
       ];
@@ -44,7 +44,7 @@
       volumes = [
         "/magpie/apps/homeassistant/config:/config:U"
       ];
-      podmanArgs = [ "--network=host" ];
+      podmanArgs = ["--network=host"];
     };
   };
   networking.firewall.allowedTCPPorts = [

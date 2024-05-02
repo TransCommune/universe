@@ -7,7 +7,11 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, quadlet }: {
+  outputs = {
+    self,
+    nixpkgs,
+    quadlet,
+  }: {
     nixosModules = {
       sunhome = [
         ./host/sunhome

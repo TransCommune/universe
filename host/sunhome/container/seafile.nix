@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   virtualisation.quadlet.networks.seafile = {};
   virtualisation.quadlet.containers.seafile = {
     containerConfig = {
@@ -18,11 +18,11 @@
         "127.0.0.1:8083:80"
         "127.0.0.1:8084:8080"
       ];
-      networks = [ "seafile.network" ];
+      networks = ["seafile.network"];
     };
     unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
+      After = ["magpie.target"];
+      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/magpie/apps/seafile"
       ];
@@ -43,11 +43,11 @@
       environments = {
         "MYSQL_LOG_CONSOLE" = "true";
       };
-      networks = [ "seafile.network" ];
+      networks = ["seafile.network"];
     };
     unitConfig = {
-      After = [ "magpie.target" ];
-      Wants = [ "magpie.target" ];
+      After = ["magpie.target"];
+      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/magpie/apps/seafile"
       ];
@@ -59,7 +59,7 @@
       name = "seafile-memcached";
       hostname = "memcached";
       image = "docker.io/library/memcached:1.6.18";
-      networks = [ "seafile.network" ];
+      networks = ["seafile.network"];
     };
   };
 }

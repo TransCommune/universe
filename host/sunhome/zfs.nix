@@ -1,8 +1,7 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   systemd.targets.magpie = {
     description = "The ZFS NAS mount";
-    requires = [ "zfs-import-all.service" ];
+    requires = ["zfs-import-all.service"];
   };
 
   systemd.services."zfs-import-all" = {
@@ -19,7 +18,7 @@
     '';
   };
 
-  boot.supportedFilesystems = [ "zfs" ];
+  boot.supportedFilesystems = ["zfs"];
   services.zfs = {
     autoScrub = {
       enable = true;
