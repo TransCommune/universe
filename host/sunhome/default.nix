@@ -82,6 +82,7 @@
   virtualisation.podman.enable = true;
 
   services.jellyfin.enable = true;
+  services.jellyfin.group = "nas";
 
   system.stateVersion = "23.11";
 }
