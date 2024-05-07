@@ -84,5 +84,14 @@
   services.jellyfin.enable = true;
   services.jellyfin.group = "nas";
 
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+  };
+
   system.stateVersion = "23.11";
 }
