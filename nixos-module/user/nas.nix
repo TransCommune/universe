@@ -27,6 +27,7 @@
       yt-dlp
       ffmpeg
       exiftool
+      beets
     ];
   };
   programs.fish.enable = true;
