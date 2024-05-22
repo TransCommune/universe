@@ -72,6 +72,8 @@
   networking.hostName = "sunhome";
   networking.hostId = "5ffb3d23";
 
+  time.timeZone = "UTC";
+
   networking.networkmanager.enable = true;
   services.tailscale.enable = true;
   networking.firewall.trustedInterfaces = ["tailscale0"];
