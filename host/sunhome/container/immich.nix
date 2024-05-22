@@ -122,6 +122,6 @@ in {
 
   environment.etc."immich-localtime" = {
     mode = "symlink";
-    target = "/etc/zoneinfo/Europe/Berlin";
+    source = "/etc/zoneinfo/Europe/Berlin";
   };
 }
