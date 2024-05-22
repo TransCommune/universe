@@ -104,7 +104,7 @@ in {
       image = "${postgresImage}";
       volumes = [
         "/magpie/apps/immich/postgres:/var/lib/postgresql/data:U"
-        #"/etc/localtime:/etc/localtime:ro"
+        "/etc/immich-localtime:/etc/localtime:ro"
       ];
       environmentFiles = [
         "/etc/immich-postgres.env"
@@ -118,5 +118,10 @@ in {
         "/magpie/apps/immich"
       ];
     };
+  };
+
+  environment.etc."immich-localtime" = {
+    mode = "symlink";
+    target = "/etc/zoneinfo/Europe/Berlin";
   };
 }
