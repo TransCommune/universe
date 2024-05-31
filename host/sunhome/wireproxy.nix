@@ -22,6 +22,6 @@ let
     };
 in
 {
-  systemd.services.wireproxy-de-dus-wg-001 = mkWireProxy de-dus-wg-001 25344;
+  systemd.services.wireproxy-de-dus-wg-001 = mkWireProxy "de-dus-wg-001" 25344;
   networking.firewall.allowedTCPPorts = [ 25344 ];
 }
