@@ -8,20 +8,24 @@ let
         BindAddress = 0.0.0.0:${toString port}
     ''; 
     in {
-        unitConfig = {
-            Description = "WireProxy ${configName}";
-            Wants = ["network-online.target"];
-            After = ["network-online.target"];
+        systemd.services.wireproxy-${configName} = {
+            unitConfig = {
+                Description = "WireProxy ${configName}";
+                Wants = ["network-online.target"];
+                After = ["network-online.target"];
+            };
+            serviceConfig = {
+                Type = "simple";
+                User = "root";
+                ExecStart = "${pkgs.wireproxy}/bin/wireproxy --config ${configFile}";
+            };
+            wantedBy = [ "multi-user.target" ];
         };
-        serviceConfig = {
-            Type = "simple";
-            User = "root";
-            ExecStart = "${pkgs.wireproxy}/bin/wireproxy --config ${configFile}";
-        };
-        wantedBy = [ "multi-user.target" ];
+        networking.firewall.allowedTCPPorts = [ ${port} ];
     };
 in
 {
-  systemd.services.wireproxy-de-dus-wg-001 = mkWireProxy "de-dus-wg-001" 25344;
-  networking.firewall.allowedTCPPorts = [ 25344 ];
+  imports = [
+    (mkWireProxy "de-dus-wg-001" 25344)
+  ];
 }
