@@ -2,10 +2,10 @@
 let 
     mkWireProxy = configName: port: let
     configFile = pkgs.writeText "wireproxy-config-${configName}" ''
+        WGConfig = /etc/wireproxy/${configName}.conf
+
         [Socks5]
         BindAddress = 0.0.0.0:${toString port}
-
-        WGConfig = /etc/wireproxy/${configName}.conf
     ''; 
     in {
         unitConfig = {
