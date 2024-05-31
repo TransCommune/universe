@@ -26,6 +26,11 @@ let
 in
 {
   imports = [
-    (mkWireProxy "de-dus-wg-001" 25344)
+    (mkWireProxy "gb-lon-wg-005" 49160)
+    (mkWireProxy "us-nyc-wg-502" 49160)
+    (mkWireProxy "fi-hel-wg-104" 49160)
+    (mkWireProxy "nl-ams-wg-201" 49160)
+    (mkWireProxy "ch-zrh-wg-202" 49160)
+    (mkWireProxy "de-dus-wg-002" 49160)
   ];
 }
