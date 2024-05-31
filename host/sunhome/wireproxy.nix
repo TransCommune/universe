@@ -8,7 +8,7 @@ let
         BindAddress = 0.0.0.0:${toString port}
     ''; 
     in {
-        systemd.services.wireproxy-${configName} = {
+        systemd.services."wireproxy-${configName}" = {
             unitConfig = {
                 Description = "WireProxy ${configName}";
                 Wants = ["network-online.target"];
