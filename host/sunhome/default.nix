@@ -16,6 +16,7 @@
     ./libvirt.nix
     ./nginx.nix
     ./backup.nix
+    ./wireproxy.nix
 
     ./container/immich.nix
     ./container/unifi.nix
