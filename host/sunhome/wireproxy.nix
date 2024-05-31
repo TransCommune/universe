@@ -27,10 +27,10 @@ in
 {
   imports = [
     (mkWireProxy "gb-lon-wg-005" 49160)
-    (mkWireProxy "us-nyc-wg-502" 49160)
-    (mkWireProxy "fi-hel-wg-104" 49160)
-    (mkWireProxy "nl-ams-wg-201" 49160)
-    (mkWireProxy "ch-zrh-wg-202" 49160)
-    (mkWireProxy "de-dus-wg-002" 49160)
+    (mkWireProxy "us-nyc-wg-502" 49161)
+    (mkWireProxy "fi-hel-wg-104" 49162)
+    (mkWireProxy "nl-ams-wg-201" 49163)
+    (mkWireProxy "ch-zrh-wg-202" 49164)
+    (mkWireProxy "de-dus-wg-002" 49165)
   ];
 }
