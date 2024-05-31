@@ -21,7 +21,7 @@ let
             };
             wantedBy = [ "multi-user.target" ];
         };
-        networking.firewall.allowedTCPPorts = [ ${port} ];
+        networking.firewall.allowedTCPPorts = [ port ];
     };
 in
 {
