@@ -96,5 +96,15 @@
     ];
   };
 
+  services.syncthing = {
+    enable = true;
+    user = "nas";
+    group = "nas";
+    openDefaultPorts = true;
+    extraFlags = [
+      "--gui-address=100.66.158.81:8384"
+    ]
+  }
+
   system.stateVersion = "23.11";
 }
