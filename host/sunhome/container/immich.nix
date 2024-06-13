@@ -1,6 +1,6 @@
 {...}: let
-  version = "v1.105.1";
-  versionML = "v1.105.1";
+  version = "v1.106.4";
+  versionML = "v1.106.4";
   redisImage = "registry.hub.docker.com/library/redis:6.2-alpine@sha256:51d6c56749a4243096327e3fb964a48ed92254357108449cb6e23999c37773c5";
   postgresImage = "registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0";
 in {
@@ -29,30 +29,6 @@ in {
       };
       publishPorts = [
         "127.0.0.1:2283:3001"
-      ];
-      networks = ["immich.network"];
-    };
-    unitConfig = {
-      After = ["magpie.target"];
-      Wants = ["magpie.target"];
-      RequiresMountsFor = [
-        "/magpie/apps/immich"
-      ];
-    };
-  };
-
-  virtualisation.quadlet.containers.immich-microservices = {
-    containerConfig = {
-      name = "immich_microservices";
-      hostname = "immich_microservices";
-      image = "ghcr.io/immich-app/immich-server:${version}";
-      volumes = [
-        "/magpie/apps/immich/upload:/usr/src/app/upload:U"
-        "/etc/immich-localtime:/etc/localtime:ro"
-      ];
-      exec = "start.sh microservices";
-      environmentFiles = [
-        "/etc/immich.env"
       ];
       networks = ["immich.network"];
     };
