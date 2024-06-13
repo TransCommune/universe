@@ -14,7 +14,6 @@ in {
         "/magpie/apps/immich/upload:/usr/src/app/upload:U"
         "/etc/immich-localtime:/etc/localtime:ro"
       ];
-      exec = "start.sh immich";
       environmentFiles = [
         "/etc/immich.env"
       ];
