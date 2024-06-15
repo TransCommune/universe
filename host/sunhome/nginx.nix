@@ -82,7 +82,7 @@
           proxy_cache_lock_age 2m;
           proxy_cache_lock_timeout 1h;
           proxy_cache_revalidate on;
-          add_header X-Cache-Status $cache_status;
+          add_header X-Cache-Status $upstream_cache_status;
         '';
       };
     };
