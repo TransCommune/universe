@@ -84,7 +84,7 @@
           proxy_cache_lock_timeout 1h;
           proxy_cache_revalidate on;
           add_header X-Cache-Status $upstream_cache_status;
-	  proxy_buffer_size 8M;
+	  proxy_buffer_size 8m;
         '';
       };
     };
