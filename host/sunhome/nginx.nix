@@ -16,6 +16,9 @@
       proxy_cache_path /magpie/apps/nginxcache/steam levels=2:2 keys_zone=steam:256m max_size=4000g use_temp_path=off loader_files=1000 loader_sleep=50ms loader_threshold=300ms inactive=3650d;
       aio threads;
       proxy_max_temp_file_size 0;
+      log_format cacheStatus '$host $server_name $server_port $remote_addr $upstream_cache_status $remote_user [$time_local] " $request " '
+                       '$status $body_bytes_sent "$http_referer" '
+                       '"$http_user_agent" "$http_x_forwarded_for"';
     '';
 
     eventsConfig = ''
@@ -85,9 +88,6 @@
           proxy_cache_revalidate on;
           add_header X-Cache-Status $upstream_cache_status;
 	  proxy_buffering off;
-          log_format cacheStatus '$host $server_name $server_port $remote_addr $upstream_cache_status $remote_user [$time_local] " $request " '
-                       '$status $body_bytes_sent "$http_referer" '
-                       '"$http_user_agent" "$http_x_forwarded_for"';
           access_log /var/log/nginx/access.steamcache.log cacheStatus;
         '';
       };
