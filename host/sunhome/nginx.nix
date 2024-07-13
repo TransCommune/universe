@@ -85,6 +85,10 @@
           proxy_cache_revalidate on;
           add_header X-Cache-Status $upstream_cache_status;
 	  proxy_buffering off;
+          log_format cacheStatus '$host $server_name $server_port $remote_addr $upstream_cache_status $remote_user [$time_local] " $request " '
+                       '$status $body_bytes_sent "$http_referer" '
+                       '"$http_user_agent" "$http_x_forwarded_for"';
+          access_log /var/log/nginx/access.steamcache.log cacheStatus;
         '';
       };
     };
