@@ -84,10 +84,7 @@
           proxy_cache steam;
           proxy_cache_key "$request_uri";
           expires max;
-          proxy_cache_lock on;
-          proxy_cache_revalidate on;
           add_header X-Cache-Status $upstream_cache_status;
-	  proxy_buffering off;
           access_log /var/log/nginx/access.steamcache.log cacheStatus;
         '';
       };
