@@ -84,10 +84,7 @@
           proxy_cache steam;
           proxy_cache_key "$request_uri";
           expires max;
-          proxy_cache_valid 301 302 0;
           proxy_cache_lock on;
-          proxy_cache_lock_age 2m;
-          proxy_cache_lock_timeout 1h;
           proxy_cache_revalidate on;
           add_header X-Cache-Status $upstream_cache_status;
 	  proxy_buffering off;
