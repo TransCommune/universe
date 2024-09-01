@@ -42,7 +42,6 @@
         "force create mode" = "0660";
         "force directory mode" = "0770";
       };
-
       media_ro = {
         path = "/magpie/media";
         browseable = true;
@@ -51,6 +50,15 @@
         "force group" = "nas";
         "guest ok" = true;
         "guest only" = true;
+      };
+
+      archive = {
+        path = "/magpie/archive";
+        browseable = true;
+        writable = true;
+        "valid users" = "aurelia sapphiccode";
+        "force create mode" = "0660";
+        "force directory mode" = "0770";
       };
 
       aurelia = {
