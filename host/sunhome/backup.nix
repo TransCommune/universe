@@ -16,15 +16,17 @@
 
         let reject_paths = [
           /magpie/media/Encoding
+          /magpie/media/Inbox
+          /magpie/apps/nginxcache
         ]
         mut paths = [
           /etc
-          /magpie/apps
         ]
 
         # search recursive paths
         let rpaths = [
           /magpie/media
+          /magpie/apps
         ]
         for rpath in $rpaths {
           $paths = ($paths | append (ls $rpath | where type == dir | get name))
@@ -38,7 +40,7 @@
         # run backups
         for path in $paths {
           print $"Now backing up: ($path)"
-          do -c {${pkgs.restic}/bin/restic -r sftp:restic: --password-file /etc/restic-password backup --exclude-caches --iexclude '*cache*' $path}
+          do -c { ${pkgs.restic}/bin/restic -r sftp:restic: --password-file /etc/restic-password backup --exclude-caches --iexclude '*cache*' $path }
           print "\n"
         }
       '';
