@@ -69,6 +69,14 @@
         "force create mode" = "0600";
         "force directory mode" = "0700";
       };
+      aurelia_timemachine = {
+        path = "/magpie/aurelia/timemachine";
+        browseable = true;
+        writable = true;
+        "valid users" = "aurelia";
+        "force group" = "users";
+        "fruit:time machine" = true;
+      };
 
       phoenix = {
         path = "/magpie/phoenix/personal";
