@@ -25,6 +25,7 @@
     ./container/seafile.nix
   ];
 
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   services.cockpit = {
@@ -32,12 +33,28 @@
     openFirewall = true;
   };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    SDL2
+  ];
+
   environment.systemPackages = with pkgs; [
     restic
     tmux
     htop
     btop
     pv
+    nsz
+    yt-dlp
+    file
+
+    p7zip
+
+    dolphin-emu
+    mame.tools
+    ctrtool
+    zellij
+    nodejs_20
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -67,8 +84,8 @@
   boot.zfs.forceImportRoot = false;
   #boot.initrd.systemd.enable = true;
 
-  # fix for crappy Intel 2.5GbE
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  # LTS to avoid ZFS breakage
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   networking.hostName = "sunhome";
   networking.hostId = "5ffb3d23";
@@ -87,10 +104,9 @@
   services.jellyfin.enable = true;
   services.jellyfin.group = "nas";
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
     ];

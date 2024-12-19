@@ -8,28 +8,27 @@
     enable = true;
     openFirewall = true;
 
-    extraConfig = ''
-      server string = sunhome
-      workgroup = TRANSCOMMUNE
+    settings = {
+      global = {
+        "server string" = "sunhome";
+        "workgroup" = "TRANSCOMMUNE";
 
-      guest account = nobody
-      map to guest = bad user
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+        "use sendfile" = "yes";
+        "min receivefile size" = "16384";
 
-      use sendfile = yes
-      min receivefile size = 16384
+        "aio read size" = "16384";
+        "aio write size" = "16384";
 
-      aio read size = 16384
-      aio write size = 16384
+        "vfs objects" = "catia fruit streams_xattr";
 
-      vfs objects = catia fruit streams_xattr
+        "fruit:nfs_aces" = "no";
+        "fruit:resource" = "xattr";
+        "fruit:metadata" = "stream";
+        "fruit:encoding" = "native";
+      };
 
-      fruit:nfs_aces = no
-      fruit:resource = xattr
-      fruit:metadata = stream
-      fruit:encoding = native
-    '';
-
-    shares = {
       media = {
         path = "/magpie/media";
         browseable = true;
