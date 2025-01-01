@@ -84,6 +84,13 @@
         "valid users" = "sapphiccode";
         "force group" = "users";
       };
+      phoenix_archive = {
+        path = "/magpie/phoenix/archive";
+        browseable = true;
+        writable = true;
+        "valid users" = "sapphiccode";
+        "force group" = "users";
+      };
       phoenix_timemachine = {
         path = "/magpie/phoenix/timemachine";
         browseable = true;
