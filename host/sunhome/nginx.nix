@@ -76,6 +76,15 @@
       };
     };
 
+    virtualHosts."ha.nullvoid.space" = {
+      addSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8123";
+        proxyWebsockets = true;
+      };
+    };
+
     virtualHosts."89.1.7.228" = {
       rejectSSL = true;
       default = true;
