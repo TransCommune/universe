@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  zfsPackage = pkgs.zfs_2_3;
+in {
   systemd.targets.magpie = {
     description = "The ZFS NAS mount";
     requires = ["zfs-import-all.service"];
@@ -12,12 +14,17 @@
 
     script = ''
       set -eux -o pipefail
-      ${pkgs.zfs}/bin/zpool import -a
-      ${pkgs.zfs}/bin/zfs load-key -a
-      ${pkgs.zfs}/bin/zfs mount -a
+      ${zfsPackage}/bin/zpool import -a
+      ${zfsPackage}/bin/zfs load-key -a
+      ${zfsPackage}/bin/zfs mount -a
     '';
   };
 
+  boot.zfs = {
+    enabled = true;
+    package = zfsPackage;
+    forceImportRoot = false;
+  };
   boot.supportedFilesystems = ["zfs"];
   services.zfs = {
     autoScrub = {

@@ -47,6 +47,7 @@
     nsz
     yt-dlp
     file
+    smartmontools
 
     p7zip
 
@@ -80,9 +81,6 @@
       echo 'cryptsetup-askpass' >> /root/.profile
     '';
   };
-
-  boot.zfs.forceImportRoot = false;
-  #boot.initrd.systemd.enable = true;
 
   # LTS to avoid ZFS breakage
   boot.kernelPackages = pkgs.linuxPackages_6_12;
