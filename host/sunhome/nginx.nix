@@ -24,9 +24,9 @@
     '';
 
     eventsConfig = ''
-      accept_mutex off;
-      worker_connections 2048;
-	    multi_accept on;
+       accept_mutex off;
+       worker_connections 2048;
+      multi_accept on;
     '';
 
     appendConfig = ''
