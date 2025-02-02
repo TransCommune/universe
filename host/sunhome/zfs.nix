@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
   zfsPackage = pkgs.zfs_2_3;
 in {
   systemd.targets.magpie = {
@@ -21,7 +21,7 @@ in {
   };
 
   boot.zfs = {
-    enabled = true;
+    enabled = lib.mkForce true;
     package = zfsPackage;
     forceImportRoot = false;
   };
