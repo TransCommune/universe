@@ -32,5 +32,7 @@ in
     (mkWireProxy "nl-ams-wg-201" 49163)
     (mkWireProxy "ch-zrh-wg-202" 49164)
     (mkWireProxy "de-dus-wg-002" 49165)
+    (mkWireProxy "de-dus-wg-001" 49166)
+    (mkWireProxy "de-dus-wg-003" 49167)
   ];
 }
