@@ -98,7 +98,7 @@
     group = "nas";
     openDefaultPorts = true;
     extraFlags = [
-      "--gui-address=100.66.158.81:8384"
+      "--gui-address=100.84.223.80:8384"
     ];
     configDir = "/home/nas/.config/syncthing";
     dataDir = "/home/nas";
