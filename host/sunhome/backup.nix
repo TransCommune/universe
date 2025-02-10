@@ -17,6 +17,8 @@
         let reject_paths = [
           /magpie/media/Encoding
           /magpie/media/Inbox
+          /magpie/media/Games
+          /magpie/media/GamesLegacy
           /magpie/apps/nginxcache
         ]
         mut paths = [
