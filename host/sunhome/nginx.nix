@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  systemd.services.nginx.serviceConfig.ReadWritePaths = "/magpie/apps/nginxcache";
-
   services.nginx = {
     enable = true;
     package = pkgs.nginxStable.override {
