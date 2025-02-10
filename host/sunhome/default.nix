@@ -62,25 +62,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-root".device = "/dev/nvme0n1p2";
-  boot.initrd.network = {
-    enable = true;
-    ssh = {
-      enable = true;
-      port = 2222;
-      # this includes the ssh keys of all users in the wheel group, but you can just specify some keys manually
-      # authorizedKeys = [ "ssh-rsa ..." ];
-      authorizedKeys = with lib;
-        concatLists (mapAttrsToList (name: user:
-          if elem "wheel" user.extraGroups
-          then user.openssh.authorizedKeys.keys
-          else [])
-        config.users.users);
-      hostKeys = ["/etc/secrets/initrd/ssh_host_rsa_key" "/etc/secrets/initrd/ssh_host_ed25519_key"];
-    };
-    postCommands = ''
-      echo 'cryptsetup-askpass' >> /root/.profile
-    '';
-  };
+  boot.initrd.systemd.enable = true;
 
   # LTS to avoid ZFS breakage
   boot.kernelPackages = pkgs.linuxPackages_6_12;
