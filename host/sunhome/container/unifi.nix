@@ -9,7 +9,7 @@
     };
 
     containerConfig = {
-      image = "docker.io/jacobalberty/unifi:v8";
+      image = "docker.io/jacobalberty/unifi:v9";
       environments.TZ = "Europe/Amsterdam";
       user = "unifi";
       volumes = [
