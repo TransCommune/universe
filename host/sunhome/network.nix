@@ -21,6 +21,7 @@
 
       networkConfig = {
         DHCP = "yes";
+        Address = "192.168.2.250/24";
 
         IPv4Forwarding = true;
         IPv6Forwarding = true;
