@@ -27,10 +27,5 @@
         IPv6Forwarding = true;
       };
     };
-
-    networks."10-tailscale" = {
-      matchConfig.Name = "tailscale*";
-      linkConfig.Unmanaged = true;
-    };
   };
 }
