@@ -11,6 +11,7 @@
     ../../nixos-module/openssh.nix
     ../../nixos-module/user/nas.nix
 
+    ./network.nix
     ./zfs.nix
     ./samba.nix
     ./libvirt.nix
@@ -25,7 +26,6 @@
     ./container/seafile.nix
   ];
 
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   services.cockpit = {
@@ -72,7 +72,6 @@
 
   time.timeZone = "UTC";
 
-  networking.networkmanager.enable = true;
   services.tailscale.enable = true;
   networking.firewall.trustedInterfaces = ["tailscale0"];
   networking.firewall.enable = false; # required for HomeKit
