@@ -72,6 +72,8 @@
 
   time.timeZone = "UTC";
 
+  zramSwap.enable = true;
+
   services.tailscale.enable = true;
   networking.firewall.trustedInterfaces = ["tailscale0"];
   networking.firewall.enable = false; # required for HomeKit
