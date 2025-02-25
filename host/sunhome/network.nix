@@ -25,7 +25,21 @@
 
         IPv4Forwarding = true;
         IPv6Forwarding = true;
+
+        VLAN = ["br0.10"];
       };
+    };
+
+    # set up VLAN 10
+    netdevs."10-br0.10" = {
+      netdevConfig = {
+        Name = "br0.10";
+        Kind = "vlan";
+      };
+    };
+    networks."21-br0.10" = {
+      matchConfig.Name = "br0.10";
+      networkConfig.DHCP = "yes";
     };
   };
 }
