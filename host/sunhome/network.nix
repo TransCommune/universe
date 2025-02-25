@@ -36,6 +36,7 @@
         Name = "br0.10";
         Kind = "vlan";
       };
+      vlanConfig.Id = 10;
     };
     networks."21-br0.10" = {
       matchConfig.Name = "br0.10";
