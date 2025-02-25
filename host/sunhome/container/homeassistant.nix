@@ -8,43 +8,60 @@
     listener 1883
     protocol mqtt
   '';
-  virtualisation.quadlet.containers.mqtt = {
-    unitConfig = {
-      After = ["magpie.target"];
-      Wants = ["magpie.target"];
-      RequiresMountsFor = [
-        "/magpie/apps/homeassistant"
-      ];
+  virtualisation.quadlet.containers = {
+    mqtt = {
+      unitConfig = {
+        After = ["magpie.target"];
+        Wants = ["magpie.target"];
+        RequiresMountsFor = [
+          "/magpie/apps/homeassistant"
+        ];
+      };
+
+      containerConfig = {
+        image = "docker.io/library/eclipse-mosquitto:2";
+        publishPorts = [
+          "1883:1883/tcp"
+        ];
+        volumes = [
+          "/etc/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf"
+          "/magpie/apps/homeassistant/mosquitto_data:/mosquitto/data:U"
+        ];
+      };
     };
 
-    containerConfig = {
-      image = "docker.io/library/eclipse-mosquitto:2";
-      publishPorts = [
-        "1883:1883/tcp"
-      ];
-      volumes = [
-        "/etc/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf"
-        "/magpie/apps/homeassistant/mosquitto_data:/mosquitto/data:U"
-      ];
-    };
-  };
-
-  virtualisation.quadlet.containers.homeassistant = {
-    unitConfig = {
-      After = ["magpie.target"];
-      Wants = ["magpie.target"];
-      RequiresMountsFor = [
-        "/magpie/apps/homeassistant"
-      ];
+    homeassistant-matter = {
+      unitConfig = {
+        After = ["magpie.target"];
+        Wants = ["magpie.target"];
+        RequiresMountsFor = ["/magpie/apps/homeassistant"];
+      };
+      containerConfig = {
+        image = "ghcr.io/home-assistant-libs/python-matter-server:stable";
+        volumes = [
+          "/magpie/apps/homeassistant/matter:/data"
+        ];
+        podmanArgs = ["--network=host"];
+      };
     };
 
-    containerConfig = {
-      image = "ghcr.io/home-assistant/home-assistant:stable";
-      environments.TZ = "Europe/Amsterdam";
-      volumes = [
-        "/magpie/apps/homeassistant/config:/config:U"
-      ];
-      podmanArgs = ["--network=host"];
+    homeassistant = {
+      unitConfig = {
+        After = ["magpie.target"];
+        Wants = ["magpie.target"];
+        RequiresMountsFor = [
+          "/magpie/apps/homeassistant"
+        ];
+      };
+
+      containerConfig = {
+        image = "ghcr.io/home-assistant/home-assistant:stable";
+        environments.TZ = "Europe/Amsterdam";
+        volumes = [
+          "/magpie/apps/homeassistant/config:/config:U"
+        ];
+        podmanArgs = ["--network=host"];
+      };
     };
   };
   networking.firewall.allowedTCPPorts = [
