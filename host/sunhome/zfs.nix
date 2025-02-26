@@ -34,5 +34,11 @@ in {
       enable = true;
       interval = "monthly";
     };
+    autoSnapshot = {
+      enable = true;
+      weekly = 0;
+      monthly = 0;
+      daily = 30;
+    };
   };
 }
