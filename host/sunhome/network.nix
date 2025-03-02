@@ -26,32 +26,32 @@
         IPv4Forwarding = true;
         IPv6Forwarding = true;
 
-        VLAN = ["vlan10"];
+        VLAN = ["br0.10"];
       };
     };
 
     # set up VLAN 10
-    netdevs."10-vlan10" = {
+    netdevs."10-br0.10" = {
       netdevConfig = {
-        Name = "vlan10";
+        Name = "br0.10";
         Kind = "vlan";
       };
       vlanConfig.Id = 10;
     };
-    networks."11-vlan10" = {
-      matchConfig.Name = "vlan10";
-      networkConfig.Bridge = "br0.10";
+    networks."11-br1" = {
+      matchConfig.Name = "br0.10";
+      networkConfig.Bridge = "br1";
     };
 
     # set up the bridge for VLAN 10
-    netdevs."11-br0.10" = {
+    netdevs."11-br1" = {
       netdevConfig = {
-        Name = "br0.10";
+        Name = "br1";
         Kind = "bridge";
       };
     };
-    networks."21-br0.10" = {
-      matchConfig.Name = "br0.10";
+    networks."21-br1" = {
+      matchConfig.Name = "br1";
     };
   };
 }
