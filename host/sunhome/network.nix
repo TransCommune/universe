@@ -52,5 +52,6 @@
     };
     networks."21-br0.10" = {
       matchConfig.Name = "br0.10";
+    };
   };
 }
