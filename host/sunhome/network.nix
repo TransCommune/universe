@@ -26,14 +26,14 @@
         IPv4Forwarding = true;
         IPv6Forwarding = true;
 
-        VLAN = ["br0.10"];
+        VLAN = ["br0.homeassistant"];
       };
     };
 
     # set up VLAN 10
-    netdevs."10-br0.10" = {
+    netdevs."10-br0.homeassistant" = {
       netdevConfig = {
-        Name = "br0.10";
+        Name = "br0.homeassistant";
         Kind = "vlan";
       };
       vlanConfig.Id = 10;
