@@ -4,7 +4,7 @@
     containerConfig = {
       name = "seafile";
       hostname = "seafile";
-      image = "docker.io/seafileltd/seafile-mc:11.0.8";
+      image = "docker.io/seafileltd/seafile-mc:12.0.10";
       volumes = [
         "/magpie/apps/seafile/data:/shared"
       ];
@@ -58,7 +58,7 @@
     containerConfig = {
       name = "seafile-memcached";
       hostname = "memcached";
-      image = "docker.io/library/memcached:1.6.18";
+      image = "docker.io/library/memcached:1.6.29";
       networks = ["seafile.network"];
     };
   };
