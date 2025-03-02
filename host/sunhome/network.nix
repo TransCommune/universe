@@ -53,7 +53,7 @@
     networks."21-br1" = {
       matchConfig.Name = "br1";
       networkConfig.DHCP = "yes";
-      networkConfig.UseGateway = "no";
+      dhcpV4Config.UseGateway = "no";
     };
   };
 }
