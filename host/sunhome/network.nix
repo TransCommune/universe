@@ -26,17 +26,31 @@
         IPv4Forwarding = true;
         IPv6Forwarding = true;
 
-        VLAN = ["br0.homeassistant"];
+        VLAN = ["vlan10"];
       };
     };
 
     # set up VLAN 10
-    netdevs."10-br0.homeassistant" = {
+    netdevs."10-vlan10" = {
       netdevConfig = {
-        Name = "br0.homeassistant";
+        Name = "vlan10";
         Kind = "vlan";
       };
       vlanConfig.Id = 10;
     };
+    networks."11-vlan10" = {
+      matchConfig.Name = "vlan10";
+      networkConfig.Bridge = "br0.10";
+    };
+
+    # set up the bridge for VLAN 10
+    netdevs."11-br0.10" = {
+      netdevConfig = {
+        Name = "br0.10";
+        Kind = "bridge";
+      };
+    };
+    networks."21-br0.10" = {
+      matchConfig.Name = "br0.10";
   };
 }
