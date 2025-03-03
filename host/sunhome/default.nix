@@ -18,6 +18,7 @@
     ./nginx.nix
     ./backup.nix
     ./wireproxy.nix
+    ./observability.nix
 
     ./container/immich.nix
     ./container/unifi.nix
