@@ -8,7 +8,7 @@ _: {
       };
       containerConfig = {
         image = "registry-1.cc/victoriametrics/victoria-metrics:stable";
-        exec = ["-storageDataPath" "/data" "-retentionPeriod" "100y"];
+        exec = "-storageDataPath=/data -retentionPeriod=100y";
         volumes = ["/magpie/apps/victoriametrics:/data:U"];
         publishPorts = ["127.0.0.1:8428:8428"];
       };
@@ -22,7 +22,7 @@ _: {
       };
       containerConfig = {
         image = "registry-1.cc/victoriametrics/victoria-logs:latest";
-        exec = ["-storageDataPath" "/data" "-retentionPeriod" "100y"];
+        exec = "-storageDataPath=/data -retentionPeriod=100y";
         volumes = ["/magpie/apps/victorialogs:/data:U"];
         publishPorts = ["127.0.0.1:9428:9428"];
       };
