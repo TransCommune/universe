@@ -33,6 +33,8 @@ _: {
     enable = true;
     journaldAccess = true;
     settings = {
+      timezone = "Europe/Berlin";
+
       sources.syslog_udp = {
         type = "syslog";
         address = "0.0.0.0:514";
