@@ -8,7 +8,7 @@
       storage = {
         type = "local";
         path = "/magpie/apps/attic/data";
-      }
+      };
     };
     environmentFile = "/etc/attic.env";
   };
