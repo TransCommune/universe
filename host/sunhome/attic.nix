@@ -6,7 +6,7 @@
       allowed-hosts = ["attic.nullvoid.space"];
       api-endpoint = "https://attic.nullvoid.space/";
       path = "/magpie/apps/attic/data";
-    }
-    environmentFile = "/etc/attic.env"
-  }
+    };
+    environmentFile = "/etc/attic.env";
+  };
 }
