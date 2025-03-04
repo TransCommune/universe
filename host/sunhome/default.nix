@@ -19,6 +19,7 @@
     ./backup.nix
     ./wireproxy.nix
     ./observability.nix
+    ./attic.nix
 
     ./container/immich.nix
     ./container/unifi.nix
