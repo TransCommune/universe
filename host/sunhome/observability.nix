@@ -35,6 +35,7 @@ _: {
     settings = {
       timezone = "Europe/Berlin";
 
+      # start of logging section
       sources.syslog_udp = {
         type = "syslog";
         address = "0.0.0.0:514";
@@ -66,6 +67,25 @@ _: {
         compression = "gzip";
         uri = "http://127.0.0.1:9428/insert/jsonline?_msg_field=message&_time_field=timestamp&_stream_fields=stream_id";
       };
+
+      # start of metrics section
+      sources.prometheus_homeassistant = {
+        type = "prometheus_scrape";
+        endpoints = ["http://127.0.0.1:8123/api/prometheus"];
+        auth = {
+          strategy = "bearer";
+          token = "\${HOMEASSISTANT_TOKEN-placeholder}";
+        };
+      };
+
+      sinks.vmetrics = {
+        type = "prometheus_remote_write";
+        inputs = [
+          "prometheus_homeassistant"
+        ];
+        endpoint = "http://127.0.0.1:8428/api/v1/write";
+      };
     };
   };
+  systemd.services.vector.serviceConfig.EnvironmentFile = "/etc/vector.env";
 }
