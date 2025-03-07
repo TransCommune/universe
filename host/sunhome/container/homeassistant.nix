@@ -1,13 +1,13 @@
-{...}: {
-  environment.etc."mosquitto/mosquitto.conf".text = ''
+{...}: let
+  mosquitto_conf = pkgs.writeText "mosquitto.conf" ''
     persistence true
     persistence_location /mosquitto/data
-
     allow_anonymous true
 
     listener 1883
     protocol mqtt
   '';
+in {
   virtualisation.quadlet.containers = {
     mqtt = {
       unitConfig = {
@@ -24,7 +24,7 @@
           "1883:1883/tcp"
         ];
         volumes = [
-          "/etc/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf"
+          "${mosquitto_conf}/mosquitto.conf:/mosquitto/config/mosquitto.conf"
           "/magpie/apps/homeassistant/mosquitto_data:/mosquitto/data:U"
         ];
       };
