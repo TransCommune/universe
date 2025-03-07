@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   mosquitto_conf = pkgs.writeText "mosquitto.conf" ''
     persistence true
     persistence_location /mosquitto/data
@@ -24,7 +24,7 @@ in {
           "1883:1883/tcp"
         ];
         volumes = [
-          "${mosquitto_conf}/mosquitto.conf:/mosquitto/config/mosquitto.conf"
+          "${mosquitto_conf}:/mosquitto/config/mosquitto.conf"
           "/magpie/apps/homeassistant/mosquitto_data:/mosquitto/data:U"
         ];
       };
