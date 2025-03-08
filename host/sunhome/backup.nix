@@ -15,6 +15,7 @@
         #!${pkgs.nushell}/bin/nu
 
         let reject_paths = [
+          /magpie/media/RSS
           /magpie/media/Encoding
           /magpie/media/Inbox
           /magpie/media/Games
