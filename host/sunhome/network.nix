@@ -52,7 +52,9 @@
     };
     networks."21-br1" = {
       matchConfig.Name = "br1";
-      networkConfig.DHCP = "yes";
+      networkConfig = {
+        Address = "192.168.12.250/24";
+      };
       dhcpV4Config.UseGateway = "no";
     };
   };
