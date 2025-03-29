@@ -20,6 +20,7 @@
     ./wireproxy.nix
     ./observability.nix
     ./attic.nix
+    ./hacks.nix
 
     ./container/immich.nix
     ./container/unifi.nix
