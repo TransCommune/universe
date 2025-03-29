@@ -21,6 +21,9 @@
           /magpie/media/Games
           /magpie/media/GamesLegacy
           /magpie/apps/nginxcache
+          /magpie/media/TV-Multi
+          /magpie/media/Movies-Multi
+          /magpie/apps/attic
         ]
         mut paths = [
           /etc
