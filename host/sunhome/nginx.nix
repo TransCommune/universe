@@ -57,7 +57,7 @@
         proxyPass = "http://127.0.0.1:2283";
         proxyWebsockets = true;
         extraConfig = ''
-          client_max_body_size 8G;
+          client_max_body_size 0;
         '';
       };
     };
@@ -81,7 +81,7 @@
         proxyPass = "http://127.0.0.1:49152";
         proxyWebsockets = true;
         extraConfig = ''
-          client_max_body_size 8G;
+          client_max_body_size 0;
         '';
       };
     };
