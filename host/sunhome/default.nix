@@ -1,7 +1,6 @@
 {
   pkgs,
-  config,
-  lib,
+  unstable,
   ...
 }: {
   imports = [
@@ -78,6 +77,7 @@
   zramSwap.enable = true;
 
   services.tailscale.enable = true;
+  services.tailscale.package = unstable.tailscale;
   networking.firewall.trustedInterfaces = ["tailscale0"];
   networking.firewall.enable = false; # required for HomeKit
 
