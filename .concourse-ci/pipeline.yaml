@@ -1,0 +1,38 @@
+resources:
+  - name: universe
+    icon: github
+    type: git
+    source: { uri: https://github.com/TransCommune/universe }
+
+jobs:
+  - name: deploy
+    serial: true
+    plan:
+      - get: universe
+        trigger: true
+      - task: deploy-sunhome
+        config:
+          platform: linux
+          image_resource:
+            type: registry-image
+            source:
+              repository: ghcr.io/sapphiccode/containers/alpine-cicd
+          params:
+            SSH_PRIVATE_KEY: ((automata-ssh))
+          inputs:
+            - name: universe
+              path: .
+          run:
+            path: bash
+            args:
+              - -c
+              - |
+                set -euo pipefail
+
+                mkdir -p ~/.ssh
+                echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_ed25519
+                chmod 600 ~/.ssh/id_ed25519
+
+                set -x
+                GIT_REV=$(git rev-parse HEAD)
+                ssh -o "StrictHostKeyChecking no" automata@100.84.223.80 sudo nixos-rebuild switch --flake "github:TransCommune/universe?rev=${GIT_REV}"
