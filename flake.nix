@@ -9,11 +9,18 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
+  inputs.sc = {
+    url = "git+https://git.sapphiccode.net/SapphicCode/universe";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
+  };
+
   outputs = {
     self,
     nixpkgs,
     nixpkgs-unstable,
     quadlet,
+    sc,
   }: let
     unstable = import nixpkgs-unstable {
       config.allowUnfree = true;
@@ -34,6 +41,7 @@
           ./host/sunhome
           ./host/sunhome/hardware-configuration.nix
           quadlet.nixosModules.quadlet
+          sc.nixosModules.user_automata
         ];
       };
     };
