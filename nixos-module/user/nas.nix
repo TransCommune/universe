@@ -24,10 +24,10 @@
       nushell
       rclone
       restic
-      yt-dlp
       ffmpeg
+      imagemagick
       exiftool
-      beets
+      uv
     ];
   };
   programs.fish.enable = true;
