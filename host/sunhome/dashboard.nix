@@ -1,5 +1,9 @@
 {...}: {
   services.homepage-dashboard.enable = true;
+  services.homepage-dashboard.settings = {
+    title = "Sunhome";
+    description = "Home of the sun.";
+  };
   services.homepage-dashboard.services = [
     {
       "Media" = [
