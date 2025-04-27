@@ -10,12 +10,15 @@
     ../../nixos-module/openssh.nix
     ../../nixos-module/user/nas.nix
 
+    
+    ./backup.nix
     ./network.nix
     ./zfs.nix
+
+    ./dashboard.nix
     ./samba.nix
     ./libvirt.nix
     ./nginx.nix
-    ./backup.nix
     ./wireproxy.nix
     ./observability.nix
     ./attic.nix
