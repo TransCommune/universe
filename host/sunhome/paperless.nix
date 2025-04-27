@@ -1,6 +1,6 @@
 {...}: {
   services.paperless = {
-    enabled = true;
+    enable = true;
     dataDir = "/magpie/apps/paperless";
   };
 }
