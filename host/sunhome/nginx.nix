@@ -86,6 +86,18 @@
       };
     };
 
+    virtualHosts."sunhome" = {
+      addSSL = false;
+      enableACME = false;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:8082";
+        proxyWebsockets = true;
+        extraConfig = ''
+          client_max_body_size 0;
+        '';
+      };
+    };
+
     virtualHosts."89.1.7.228" = {
       rejectSSL = true;
       default = true;
