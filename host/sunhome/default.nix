@@ -21,6 +21,7 @@
     ./wireproxy.nix
     ./observability.nix
     ./attic.nix
+    ./paperless.nix
     ./hacks.nix
 
     ./container/immich.nix
