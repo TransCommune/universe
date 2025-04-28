@@ -4,7 +4,7 @@
     containerConfig = {
       name = "seafile";
       hostname = "seafile";
-      image = "docker.io/seafileltd/seafile-mc:12.0.10";
+      image = "docker.io/seafileltd/seafile-mc:12.0.11";
       volumes = [
         "/magpie/apps/seafile/data:/shared"
       ];
@@ -60,6 +60,24 @@
       hostname = "memcached";
       image = "docker.io/library/memcached:1.6.29";
       networks = ["seafile.network"];
+    };
+  };
+
+  virtualisation.quadlet.containers.sdoc = {
+    containerConfig = {
+      name = "seafile-sdoc";
+      hostname = "seadoc";
+      image = "docker.io/seafileltd/sdoc-server:1.0-latest";
+      networks = ["seafile.network"];
+      volumes = [
+        "/magpie/apps/seafile/seadoc:/shared"
+      ];
+      environmentFiles = [
+        "/etc/seafile-database-sdoc.env"
+      ];
+      publishPorts = [
+        "127.0.0.1:8085:80"
+      ];
     };
   };
 }

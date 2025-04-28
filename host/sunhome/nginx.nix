@@ -52,6 +52,20 @@
           client_max_body_size 0;
         '';
       };
+      locations."/socket.io/" = {
+        proxyPass = "http://127.0.0.1:8085";
+        proxyWebsockets = true;
+        extraConfig = ''
+          client_max_body_size 0;
+        '';
+      };
+      locations."/sdoc-server/" = {
+        proxyPass = "http://127.0.0.1:8085";
+        proxyWebsockets = true;
+        extraConfig = ''
+          client_max_body_size 0;
+        '';
+      };
     };
 
     virtualHosts."immich.nullvoid.space" = {
