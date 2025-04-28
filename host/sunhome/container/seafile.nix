@@ -84,6 +84,7 @@
       ];
       environments = {
         "DB_HOST" = "db";
+        "DB_NAME" = "seahub_db";
         "DB_PORT" = "3306";
         "DB_USER" = "seafile";
         "TIME_ZONE" = "Etc/UTC";
