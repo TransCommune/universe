@@ -86,7 +86,7 @@
         "DB_HOST" = "db";
         "DB_NAME" = "seahub_db";
         "DB_PORT" = "3306";
-        "DB_USER" = "seafile";
+        "DB_USER" = "root";
         "TIME_ZONE" = "Etc/UTC";
         "NON_ROOT" = "false";
         "SEAHUB_SERVICE_URL" = "https://seafile.nullvoid.space";
