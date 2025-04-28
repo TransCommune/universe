@@ -13,6 +13,13 @@
       ];
       environments = {
         "TIME_ZONE" = "Etc/UTC";
+        "DB_HOST" = "db";
+        "SEAFILE_ADMIN_EMAIL" = "aurelia@schittler.dev";
+        "SEAFILE_SERVER_LETSENCRYPT" = "false";
+        "SEAFILE_SERVER_HOSTNAME" = "seafile.nullvoid.space";
+        "SEAFILE_SERVER_PROTOCOL" = "https";
+        "SEADOC_SERVER_URL" = "https://seafile.nullvoid.space/sdoc-server";
+        "ENABLE_SEADOC" = "true";
       };
       publishPorts = [
         "127.0.0.1:8083:80"
@@ -75,6 +82,14 @@
       environmentFiles = [
         "/etc/seafile-database-sdoc.env"
       ];
+      environments = {
+        "DB_HOST" = "db";
+        "DB_PORT" = "3306";
+        "DB_USER" = "seafile";
+        "TIME_ZONE" = "Etc/UTC";
+        "NON_ROOT" = "false";
+        "SEAHUB_SERVICE_URL" = "https://seafile.nullvoid.space";
+      };
       publishPorts = [
         "127.0.0.1:8085:80"
       ];
