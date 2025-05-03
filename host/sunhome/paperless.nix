@@ -3,5 +3,9 @@
     package = unstable.paperless-ngx;
     enable = true;
     dataDir = "/magpie/apps/paperless";
+    settings = {
+      PAPERLESS_TASK_WORKERS = 4;
+      PAPERLESS_THREADS_PER_WORKER = 2;
+    };
   };
 }
