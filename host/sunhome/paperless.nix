@@ -1,4 +1,4 @@
-{..., unstable }: {
+{unstable, ...}: {
   services.paperless = {
     package = unstable.paperless-ngx;
     enable = true;
