@@ -38,7 +38,7 @@ in {
       enable = true;
       weekly = 0;
       monthly = 0;
-      daily = 30;
+      daily = 7;
     };
   };
 }
