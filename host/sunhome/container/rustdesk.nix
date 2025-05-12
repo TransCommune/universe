@@ -1,8 +1,6 @@
 {...}: {
   virtualisation.quadlet.containers.rustdeskHbbs = {
     unitConfig = {
-      After = ["magpie.target"];
-      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/apps/rustdesk"
       ];
@@ -22,8 +20,6 @@
 
   virtualisation.quadlet.containers.rustdeskHbbr = {
     unitConfig = {
-      After = ["magpie.target"];
-      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/apps/rustdesk"
       ];

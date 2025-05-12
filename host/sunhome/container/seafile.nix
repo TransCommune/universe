@@ -28,8 +28,6 @@
       networks = ["seafile.network"];
     };
     unitConfig = {
-      After = ["magpie.target"];
-      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/apps/seafile"
       ];
@@ -53,8 +51,6 @@
       networks = ["seafile.network"];
     };
     unitConfig = {
-      After = ["magpie.target"];
-      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/apps/seafile"
       ];

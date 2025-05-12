@@ -54,8 +54,6 @@ in {
       networks = ["immich.network"];
     };
     unitConfig = {
-      After = ["magpie.target"];
-      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/apps/immich"
       ];
@@ -86,8 +84,6 @@ in {
       networks = ["immich.network"];
     };
     unitConfig = {
-      After = ["magpie.target"];
-      Wants = ["magpie.target"];
       RequiresMountsFor = [
         "/apps/immich"
       ];

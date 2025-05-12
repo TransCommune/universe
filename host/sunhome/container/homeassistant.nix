@@ -11,8 +11,6 @@ in {
   virtualisation.quadlet.containers = {
     mqtt = {
       unitConfig = {
-        After = ["magpie.target"];
-        Wants = ["magpie.target"];
         RequiresMountsFor = [
           "/apps/homeassistant"
         ];
@@ -32,8 +30,6 @@ in {
 
     homeassistant-matter = {
       unitConfig = {
-        After = ["magpie.target"];
-        Wants = ["magpie.target"];
         RequiresMountsFor = ["/apps/homeassistant"];
       };
       containerConfig = {
@@ -47,8 +43,6 @@ in {
 
     homeassistant = {
       unitConfig = {
-        After = ["magpie.target"];
-        Wants = ["magpie.target"];
         RequiresMountsFor = [
           "/apps/homeassistant"
         ];

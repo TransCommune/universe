@@ -2,8 +2,6 @@ _: {
   virtualisation.quadlet.containers = {
     victoriametrics = {
       unitConfig = {
-        Wants = ["magpie.target"];
-        After = ["magpie.target"];
         RequiresMountsFor = ["/apps/victoriametrics"];
       };
       containerConfig = {
@@ -16,8 +14,6 @@ _: {
 
     victorialogs = {
       unitConfig = {
-        Wants = ["magpie.target"];
-        After = ["magpie.target"];
         RequiresMountsFor = ["/apps/victorialogs"];
       };
       containerConfig = {
