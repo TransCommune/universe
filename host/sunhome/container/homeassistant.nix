@@ -58,8 +58,7 @@ in {
         image = "ghcr.io/home-assistant/home-assistant:stable";
         environments.TZ = "Europe/Amsterdam";
         volumes = [
-          "/apps/homeassistant/config:/config:U",
-          "/run/dbus:/run/dbus:ro",
+          "/apps/homeassistant/config:/config:U"
         ];
         podmanArgs = ["--network=host"];
       };
