@@ -45,7 +45,7 @@ in {
       hostname = "immich_machine_learning";
       image = "ghcr.io/immich-app/immich-machine-learning:${version}";
       volumes = [
-        "/magpie/apps/immich/model-cache:/cache:U"
+        "/apps/immich/model-cache:/cache:U"
         "/etc/immich-localtime:/etc/localtime:ro"
       ];
       environmentFiles = [
@@ -57,7 +57,7 @@ in {
       After = ["magpie.target"];
       Wants = ["magpie.target"];
       RequiresMountsFor = [
-        "/magpie/apps/immich"
+        "/apps/immich"
       ];
     };
   };
@@ -77,7 +77,7 @@ in {
       hostname = "immich_postgres";
       image = "${postgresImage}";
       volumes = [
-        "/magpie/apps/immich/postgres:/var/lib/postgresql/data:U"
+        "/apps/immich/postgres:/var/lib/postgresql/data:U"
         "/etc/immich-localtime:/etc/localtime:ro"
       ];
       environmentFiles = [
@@ -89,7 +89,7 @@ in {
       After = ["magpie.target"];
       Wants = ["magpie.target"];
       RequiresMountsFor = [
-        "/magpie/apps/immich"
+        "/apps/immich"
       ];
     };
   };

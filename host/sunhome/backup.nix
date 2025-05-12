@@ -33,6 +33,7 @@
         let rpaths = [
           /magpie/media
           /magpie/apps
+          /apps
         ]
         for rpath in $rpaths {
           $paths = ($paths | append (ls $rpath | where type == dir | get name))

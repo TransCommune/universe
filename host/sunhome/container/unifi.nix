@@ -4,7 +4,7 @@
       After = ["magpie.target"];
       Wants = ["magpie.target"];
       RequiresMountsFor = [
-        "/magpie/apps/unifi"
+        "/apps/unifi"
       ];
     };
 
@@ -13,7 +13,7 @@
       environments.TZ = "Europe/Amsterdam";
       user = "unifi";
       volumes = [
-        "/magpie/apps/unifi:/unifi:U"
+        "/apps/unifi:/unifi:U"
       ];
       podmanArgs = ["--network=host"];
     };

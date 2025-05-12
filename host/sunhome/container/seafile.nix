@@ -6,7 +6,7 @@
       hostname = "seafile";
       image = "docker.io/seafileltd/seafile-mc:12.0.11";
       volumes = [
-        "/magpie/apps/seafile/data:/shared"
+        "/apps/seafile/data:/shared"
       ];
       environmentFiles = [
         "/etc/seafile.env"
@@ -31,7 +31,7 @@
       After = ["magpie.target"];
       Wants = ["magpie.target"];
       RequiresMountsFor = [
-        "/magpie/apps/seafile"
+        "/apps/seafile"
       ];
     };
   };
@@ -42,7 +42,7 @@
       hostname = "db";
       image = "docker.io/library/mariadb:10.11";
       volumes = [
-        "/magpie/apps/seafile/db:/var/lib/mysql"
+        "/apps/seafile/db:/var/lib/mysql"
       ];
       environmentFiles = [
         "/etc/seafile-database.env"
@@ -56,7 +56,7 @@
       After = ["magpie.target"];
       Wants = ["magpie.target"];
       RequiresMountsFor = [
-        "/magpie/apps/seafile"
+        "/apps/seafile"
       ];
     };
   };
@@ -77,7 +77,7 @@
       image = "docker.io/seafileltd/sdoc-server:1.0-latest";
       networks = ["seafile.network"];
       volumes = [
-        "/magpie/apps/seafile/seadoc:/shared"
+        "/apps/seafile/seadoc:/shared"
       ];
       environmentFiles = [
         "/etc/seafile-database-sdoc.env"

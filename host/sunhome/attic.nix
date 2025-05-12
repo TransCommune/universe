@@ -7,7 +7,7 @@
       api-endpoint = "https://attic.nullvoid.space/";
       storage = {
         type = "local";
-        path = "/magpie/apps/attic/data";
+        path = "/apps/attic/data";
       };
     };
     environmentFile = "/etc/attic.env";

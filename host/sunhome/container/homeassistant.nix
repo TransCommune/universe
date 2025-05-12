@@ -14,7 +14,7 @@ in {
         After = ["magpie.target"];
         Wants = ["magpie.target"];
         RequiresMountsFor = [
-          "/magpie/apps/homeassistant"
+          "/apps/homeassistant"
         ];
       };
 
@@ -25,7 +25,7 @@ in {
         ];
         volumes = [
           "${mosquitto_conf}:/mosquitto/config/mosquitto.conf"
-          "/magpie/apps/homeassistant/mosquitto_data:/mosquitto/data:U"
+          "/apps/homeassistant/mosquitto_data:/mosquitto/data:U"
         ];
       };
     };
@@ -34,12 +34,12 @@ in {
       unitConfig = {
         After = ["magpie.target"];
         Wants = ["magpie.target"];
-        RequiresMountsFor = ["/magpie/apps/homeassistant"];
+        RequiresMountsFor = ["/apps/homeassistant"];
       };
       containerConfig = {
         image = "ghcr.io/home-assistant-libs/python-matter-server:stable";
         volumes = [
-          "/magpie/apps/homeassistant/matter:/data"
+          "/apps/homeassistant/matter:/data"
         ];
         podmanArgs = ["--network=host"];
       };
@@ -50,7 +50,7 @@ in {
         After = ["magpie.target"];
         Wants = ["magpie.target"];
         RequiresMountsFor = [
-          "/magpie/apps/homeassistant"
+          "/apps/homeassistant"
         ];
       };
 
@@ -58,7 +58,8 @@ in {
         image = "ghcr.io/home-assistant/home-assistant:stable";
         environments.TZ = "Europe/Amsterdam";
         volumes = [
-          "/magpie/apps/homeassistant/config:/config:U"
+          "/apps/homeassistant/config:/config:U",
+          "/run/dbus:/run/dbus:ro",
         ];
         podmanArgs = ["--network=host"];
       };

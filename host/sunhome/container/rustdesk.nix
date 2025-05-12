@@ -4,13 +4,13 @@
       After = ["magpie.target"];
       Wants = ["magpie.target"];
       RequiresMountsFor = [
-        "/magpie/apps/rustdesk"
+        "/apps/rustdesk"
       ];
     };
     containerConfig = {
       image = "docker.io/rustdesk/rustdesk-server:latest";
       exec = "hbbs -r 192.168.2.250";
-      volumes = ["/magpie/apps/rustdesk:/data:U"];
+      volumes = ["/apps/rustdesk:/data:U"];
       publishPorts = [
         "21115:21115/tcp"
         "21116:21116/tcp"
@@ -25,13 +25,13 @@
       After = ["magpie.target"];
       Wants = ["magpie.target"];
       RequiresMountsFor = [
-        "/magpie/apps/rustdesk"
+        "/apps/rustdesk"
       ];
     };
     containerConfig = {
       image = "docker.io/rustdesk/rustdesk-server:latest";
       exec = "hbbr";
-      volumes = ["/magpie/apps/rustdesk:/data:U"];
+      volumes = ["/apps/rustdesk:/data:U"];
       publishPorts = [
         "21117:21117/tcp"
         "21119:21119/tcp"

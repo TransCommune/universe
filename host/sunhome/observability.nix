@@ -4,12 +4,12 @@ _: {
       unitConfig = {
         Wants = ["magpie.target"];
         After = ["magpie.target"];
-        RequiresMountsFor = ["/magpie/apps/victoriametrics"];
+        RequiresMountsFor = ["/apps/victoriametrics"];
       };
       containerConfig = {
         image = "registry-1.cc/victoriametrics/victoria-metrics:stable";
         exec = "-storageDataPath=/data -retentionPeriod=100y";
-        volumes = ["/magpie/apps/victoriametrics:/data:U"];
+        volumes = ["/apps/victoriametrics:/data:U"];
         publishPorts = ["127.0.0.1:8428:8428"];
       };
     };
@@ -18,12 +18,12 @@ _: {
       unitConfig = {
         Wants = ["magpie.target"];
         After = ["magpie.target"];
-        RequiresMountsFor = ["/magpie/apps/victorialogs"];
+        RequiresMountsFor = ["/apps/victorialogs"];
       };
       containerConfig = {
         image = "registry-1.cc/victoriametrics/victoria-logs:latest";
         exec = "-storageDataPath=/data -retentionPeriod=100y";
-        volumes = ["/magpie/apps/victorialogs:/data:U"];
+        volumes = ["/apps/victorialogs:/data:U"];
         publishPorts = ["127.0.0.1:9428:9428"];
       };
     };
