@@ -26,11 +26,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741782714,
-        "narHash": "sha256-8SxpnD/N9+N2DjT/mPmzPZc+mJRIJ+N+wLSKUwwkvFg=",
+        "lastModified": 1747565775,
+        "narHash": "sha256-B6jmKHUEX1jxxcdoYHl7RVaeohtAVup8o3nuVkzkloA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5871e21c1145f3f5e278545d1c09539b52183ccd",
+        "rev": "97118a310eb8e13bc1b9b12d67267e55b7bee6c8",
         "type": "github"
       },
       "original": {
@@ -47,11 +47,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741126078,
-        "narHash": "sha256-ng0a4cIq3c9E3iGKomlwqKzVYs2RLOzQho2U1Mc2sqU=",
+        "lastModified": 1743127615,
+        "narHash": "sha256-+sMGqywrSr50BGMLMeY789mSrzjkoxZiu61eWjYS/8o=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "c172f50b55b087f8e7801631de977461603bb976",
+        "rev": "fc843893cecc1838a59713ee3e50e9e7edc6207c",
         "type": "github"
       },
       "original": {
@@ -133,11 +133,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744569218,
-        "narHash": "sha256-SzXc0B9Ewfa0ZhZYp8nJL5vY6X4cyrELxIlapF6oSvs=",
+        "lastModified": 1747647491,
+        "narHash": "sha256-IVZgzv7lIxRoiPjNGM0CmKa/yQdoJ2ms4Vwla/MOCnI=",
         "ref": "refs/heads/main",
-        "rev": "b492fa0b8bd0dfb23aec9e1270bac84d1cc90b2d",
-        "revCount": 258,
+        "rev": "f48f31abcdbbe1bf28d190702c636746eaff39ae",
+        "revCount": 273,
         "type": "git",
         "url": "https://git.sapphiccode.net/SapphicCode/universe"
       },
