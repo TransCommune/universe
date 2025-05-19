@@ -133,11 +133,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747647491,
-        "narHash": "sha256-IVZgzv7lIxRoiPjNGM0CmKa/yQdoJ2ms4Vwla/MOCnI=",
+        "lastModified": 1747647918,
+        "narHash": "sha256-QWaY57TriHZx1Ma9/3lzNc9h93QZYv+7vmMCpPlGUtU=",
         "ref": "refs/heads/main",
-        "rev": "f48f31abcdbbe1bf28d190702c636746eaff39ae",
-        "revCount": 273,
+        "rev": "0e177b9d21033352b568d896b23eae1479602691",
+        "revCount": 274,
         "type": "git",
         "url": "https://git.sapphiccode.net/SapphicCode/universe"
       },
