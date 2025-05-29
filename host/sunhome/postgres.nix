@@ -10,5 +10,11 @@
         ensureClauses.login = true;
       }
     ];
+    identMap = ''
+      # ArbitraryMapName systemUser DBUser
+      superuser_map      root      postgres
+      superuser_map      postgres  postgres
+      superuser_map      atticd    attic
+    '';
   };
 }
