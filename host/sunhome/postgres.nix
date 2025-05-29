@@ -16,5 +16,9 @@
       superuser_map      postgres  postgres
       superuser_map      atticd    attic
     '';
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method optional_ident_map
+      local all       all     peer        map=superuser_map
+    '';
   };
 }
