@@ -9,7 +9,7 @@
         type = "local";
         path = "/apps/attic/data";
       };
-      database.url = "postgresql://localhost/attic";
+      database.url = "postgresql:///attic?host=/run/postgresql";
     };
     environmentFile = "/etc/attic.env";
   };
