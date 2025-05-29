@@ -1,5 +1,6 @@
-{...}: {
+{pkgs, ...}: {
   services.postgresql = {
+    package = pkgs.postgresql_17_jit;
     enable = true;
     ensureDatabases = ["attic"];
     ensureUsers = [
