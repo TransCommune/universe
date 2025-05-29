@@ -63,4 +63,32 @@
     };
     wantedBy = ["timers.target"];
   };
+
+  systemd.services.syncoid = {
+    unitConfig = {
+      Description = "Syncoid backup job";
+      Wants = ["magpie.target"];
+      After = ["magpie.target"];
+    };
+    serviceConfig.ExecStart = pkgs.writeScript "backup" ''
+      #!/${pkgs.bash}/bin/bash
+
+      # set up script environment
+      set -euo pipefail
+      PATH="${pkgs.sanoid}/bin:$PATH"
+
+      syncoid --recursive --compress=none sunhome magpie/backup/sunhome
+    '';
+  };
+  systemd.timers.syncoid = {
+    enable = true;
+    unitConfig = {
+      Description = "Syncoid backup timer";
+    };
+    timerConfig = {
+      OnStartupSec = "15min";
+      OnUnitActiveSec = "4h";
+    };
+    wantedBy = ["timers.target"];
+  };
 }
