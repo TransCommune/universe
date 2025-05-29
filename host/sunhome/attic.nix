@@ -14,8 +14,8 @@
     environmentFile = "/etc/attic.env";
   };
 
-  # nix.settings = {
-  #   substituters = ["https://attic.nullvoid.space/sunhome"];
-  #   trusted-public-keys = ["sunhome:3aBZKTmYovMvwc7Q/l6sVBY4dEKf8qdkOJjCGoGLD1k="];
-  # };
+  nix.settings = {
+    substituters = ["https://attic.nullvoid.space/default"];
+    trusted-public-keys = ["default:LZHLvF1j4Aees2xS1uEAN7ZJ/IacERC/77qkSV1G8fw="];
+  };
 }
