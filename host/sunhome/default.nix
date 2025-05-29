@@ -23,6 +23,7 @@
     ./attic.nix
     ./paperless.nix
     ./hacks.nix
+    ./postgres.nix
 
     ./container/immich.nix
     ./container/unifi.nix
