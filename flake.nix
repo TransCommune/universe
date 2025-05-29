@@ -1,7 +1,7 @@
 {
   description = "The Commune's NixOS / whatever flake";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
   inputs.nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
   inputs.quadlet = {
