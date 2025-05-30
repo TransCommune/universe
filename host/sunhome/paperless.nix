@@ -6,6 +6,7 @@
     settings = {
       PAPERLESS_TASK_WORKERS = 1;
       PAPERLESS_THREADS_PER_WORKER = 2;
+      PAPERLESS_URL = "https://paperless.nullvoid.space";
     };
   };
 }
