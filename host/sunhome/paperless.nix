@@ -2,6 +2,8 @@
   services.paperless = {
     package = unstable.paperless-ngx;
     enable = true;
+    configureTika = true;
+    database.createLocally = true;
     dataDir = "/apps/paperless";
     settings = {
       PAPERLESS_TASK_WORKERS = 1;
