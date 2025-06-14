@@ -53,6 +53,7 @@ in {
         environments.TZ = "Europe/Amsterdam";
         volumes = [
           "/apps/homeassistant/config:/config:U"
+          "/run/dbus:/run/dbus:ro"
         ];
         podmanArgs = ["--network=host"];
       };
@@ -62,4 +63,8 @@ in {
     8123 # UI
     21064 # homekit
   ];
+
+  # bluetooth support:
+  services.dbus.implementation = "broker";
+  hardware.bluetooth.enable = true;
 }
