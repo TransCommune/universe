@@ -8,7 +8,10 @@
     wantedBy = ["magpie-media-bindmounts.target"];
     bindsTo = ["magpie-media-bindmounts.target"];
   };
-  bindMountRetroDeckROM = type: (bindMount "/magpie/media/Games/ActiveLibrary/roms/${type}" "/magpie/media/Games/Sync/RetroDeck/roms/${type}");
+  activeLibraryDir = "/magpie/media/Games/ActiveLibrary";
+  retroDeckDir = "/magpie/media/Games/Sync/RetroDeck";
+  bindMountRetroDeckROM = type: (bindMount "${activeLibraryDir}/roms/${type}" "${retroDeckDir}/roms/${type}");
+  bindMountRetroDeckSave = type: (bindMount "${activeLibraryDir}/saves/${type}" "${retroDeckDir}/saves/${type}");
 in {
   systemd.services.syncthing = {
     after = ["magpie-media-bindmounts.target"];
@@ -20,6 +23,7 @@ in {
     requires = ["magpie.target"];
   };
   systemd.mounts = [
+    (bindMount "${activeLibraryDir}/bios" "${retroDeckDir}/bios")
     (bindMountRetroDeckROM "dreamcast")
     (bindMountRetroDeckROM "easyrpg")
     (bindMountRetroDeckROM "gb")
@@ -43,6 +47,15 @@ in {
     (bindMountRetroDeckROM "wii")
     (bindMountRetroDeckROM "wiiu")
     (bindMountRetroDeckROM "xbox360")
+    (bindMountRetroDeckSave "gb")
+    (bindMountRetroDeckSave "gbc")
+    (bindMountRetroDeckSave "gba")
+    (bindMountRetroDeckSave "gc")
+    (bindMountRetroDeckSave "nds")
+    (bindMount "${activeLibraryDir}/custom_data/azahar" "${retroDeckDir}/custom_data/azahar"
+    (bindMount "${activeLibraryDir}/custom_data/dolphin" "${retroDeckDir}/custom_data/dolphin"
+    (bindMount "${activeLibraryDir}/custom_data/eden" "${retroDeckDir}/custom_data/eden"
+    (bindMount "${activeLibraryDir}/custom_data/ryujinx" "${retroDeckDir}/custom_data/ryujinx"
   ];
 
   services.syncthing = {

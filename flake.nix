@@ -6,7 +6,6 @@
 
   inputs.quadlet = {
     url = "github:SEIAROTg/quadlet-nix";
-    inputs.nixpkgs.follows = "nixpkgs";
   };
 
   inputs.sc = {
