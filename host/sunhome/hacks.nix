@@ -10,7 +10,7 @@
   };
   bindMountRetroDeckROM = type: (bindMount "/magpie/media/Games/ActiveLibrary/roms/${type}" "/magpie/media/Games/Sync/RetroDeck/roms/${type}");
 in {
-  services.syncthing = {
+  systemd.services.syncthing = {
     after = ["magpie-media-bindmounts.target"];
     requires = ["magpie-media-bindmounts.target"];
   };
