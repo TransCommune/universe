@@ -45,23 +45,24 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    restic
-    tmux
-    htop
     btop
-    pv
-    nsz
-    yt-dlp
+    fd
     file
+    htop
+    nodejs_20
+    nsz
+    pv
+    restic
     smartmontools
+    tmux
+    yt-dlp
+    zellij
 
     p7zip
 
     dolphin-emu
     mame.tools
     ctrtool
-    zellij
-    nodejs_20
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -98,18 +99,6 @@
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
     ];
-  };
-
-  services.syncthing = {
-    enable = true;
-    user = "nas";
-    group = "nas";
-    openDefaultPorts = true;
-    extraFlags = [
-      "--gui-address=100.84.223.80:8384"
-    ];
-    configDir = "/home/nas/.config/syncthing";
-    dataDir = "/home/nas";
   };
 
   system.stateVersion = "23.11";
