@@ -52,10 +52,10 @@ in {
     (bindMountRetroDeckSave "gba")
     (bindMountRetroDeckSave "gc")
     (bindMountRetroDeckSave "nds")
-    (bindMount "${activeLibraryDir}/custom_data/azahar" "${retroDeckDir}/custom_data/azahar"
-    (bindMount "${activeLibraryDir}/custom_data/dolphin" "${retroDeckDir}/custom_data/dolphin"
-    (bindMount "${activeLibraryDir}/custom_data/eden" "${retroDeckDir}/custom_data/eden"
-    (bindMount "${activeLibraryDir}/custom_data/ryujinx" "${retroDeckDir}/custom_data/ryujinx"
+    (bindMount "${activeLibraryDir}/custom_data/azahar" "${retroDeckDir}/custom_data/azahar")
+    (bindMount "${activeLibraryDir}/custom_data/dolphin" "${retroDeckDir}/custom_data/dolphin")
+    (bindMount "${activeLibraryDir}/custom_data/eden" "${retroDeckDir}/custom_data/eden")
+    (bindMount "${activeLibraryDir}/custom_data/ryujinx" "${retroDeckDir}/custom_data/ryujinx")
   ];
 
   services.syncthing = {
