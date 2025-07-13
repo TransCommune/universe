@@ -56,11 +56,11 @@ in {
     (bindMountRetroDeckSave "gc")
     (bindMountRetroDeckSave "nds")
 
-    (bindMountAndroidROM "dreamcast")
+    #(bindMountAndroidROM "dreamcast")
     (bindMountAndroidROM "gb")
     (bindMountAndroidROM "gba")
     (bindMountAndroidROM "gbc")
-    (bindMountAndroidROM "gc")
+    #(bindMountAndroidROM "gc")
     (bindMountAndroidROM "n3ds")
     (bindMountAndroidROM "n64")
     (bindMountAndroidROM "nds")
