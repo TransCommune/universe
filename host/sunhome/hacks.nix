@@ -32,7 +32,6 @@ in {
     (bindMountRetroDeckROM "gb")
     (bindMountRetroDeckROM "gba")
     (bindMountRetroDeckROM "gbc")
-    (bindMountRetroDeckROM "gc")
     (bindMountRetroDeckROM "megadrive")
     (bindMountRetroDeckROM "model2")
     (bindMountRetroDeckROM "n3ds")
@@ -81,7 +80,6 @@ in {
     (bindMountAndroidSave "gb")
     (bindMountAndroidSave "gbc")
     (bindMountAndroidSave "gba")
-    (bindMountAndroidSave "gc")
     (bindMountAndroidSave "nds")
 
     (bindMount "${activeLibraryDir}/custom_data/azahar" "${retroDeckDir}/custom_data/azahar")
