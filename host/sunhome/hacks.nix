@@ -10,8 +10,11 @@
   };
   activeLibraryDir = "/magpie/media/Games/ActiveLibrary";
   retroDeckDir = "/magpie/media/Games/Sync/RetroDeck";
+  androidDir = "/magpie/media/Games/Sync/Android";
   bindMountRetroDeckROM = type: (bindMount "${activeLibraryDir}/roms/${type}" "${retroDeckDir}/roms/${type}");
   bindMountRetroDeckSave = type: (bindMount "${activeLibraryDir}/saves/${type}" "${retroDeckDir}/saves/${type}");
+  bindMountAndroidROM = type: (bindMount "${activeLibraryDir}/roms/${type}" "${androidDir}/roms/${type}");
+  bindMountAndroidSave = type: (bindMount "${activeLibraryDir}/saves/${type}" "${androidDir}/saves/${type}");
 in {
   systemd.services.syncthing = {
     after = ["magpie-media-bindmounts.target"];
@@ -47,11 +50,40 @@ in {
     (bindMountRetroDeckROM "wii")
     (bindMountRetroDeckROM "wiiu")
     (bindMountRetroDeckROM "xbox360")
+
     (bindMountRetroDeckSave "gb")
     (bindMountRetroDeckSave "gbc")
     (bindMountRetroDeckSave "gba")
     (bindMountRetroDeckSave "gc")
     (bindMountRetroDeckSave "nds")
+
+    (bindMountAndroidROM "dreamcast")
+    (bindMountAndroidROM "gb")
+    (bindMountAndroidROM "gba")
+    (bindMountAndroidROM "gbc")
+    (bindMountAndroidROM "gc")
+    (bindMountAndroidROM "n3ds")
+    (bindMountAndroidROM "n64")
+    (bindMountAndroidROM "nds")
+    (bindMountAndroidROM "nes")
+    (bindMountAndroidROM "pcengine")
+    (bindMountAndroidROM "ps2")
+    (bindMountAndroidROM "ps3")
+    (bindMountAndroidROM "psp")
+    (bindMountAndroidROM "psvita")
+    (bindMountAndroidROM "psx")
+    (bindMountAndroidROM "snes")
+    (bindMountAndroidROM "switch")
+    (bindMountAndroidROM "wii")
+    (bindMountAndroidROM "wiiu")
+    (bindMountAndroidROM "xbox360")
+
+    (bindMountAndroidSave "gb")
+    (bindMountAndroidSave "gbc")
+    (bindMountAndroidSave "gba")
+    (bindMountAndroidSave "gc")
+    (bindMountAndroidSave "nds")
+
     (bindMount "${activeLibraryDir}/custom_data/azahar" "${retroDeckDir}/custom_data/azahar")
     (bindMount "${activeLibraryDir}/custom_data/dolphin" "${retroDeckDir}/custom_data/dolphin")
     (bindMount "${activeLibraryDir}/custom_data/eden" "${retroDeckDir}/custom_data/eden")
