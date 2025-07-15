@@ -9,7 +9,7 @@
   };
 
   inputs.sc = {
-    url = "git+https://git.sapphiccode.net/SapphicCode/universe";
+    url = "github:SapphicCode/nix";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
   };
@@ -27,15 +27,15 @@
     };
   in {
     nixosModules = {
-      sunhome = [
-        ./host/sunhome
-        quadlet.nixosModules.quadlet
-      ];
+      constants = import ./nixos-module/constants {};
     };
     nixosConfigurations = {
       sunhome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit unstable;};
+        specialArgs = {
+          inherit unstable;
+          constants = self.constants;
+        };
         modules = [
           ./host/sunhome
           ./host/sunhome/hardware-configuration.nix

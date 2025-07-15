@@ -26,11 +26,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747978958,
-        "narHash": "sha256-pQQnbxWpY3IiZqgelXHIe/OAE/Yv4NSQq7fch7M6nXQ=",
+        "lastModified": 1750973805,
+        "narHash": "sha256-BZXgag7I0rnL/HMHAsBz3tQrfKAibpY2vovexl2lS+Y=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7419250703fd5eb50e99bdfb07a86671939103ea",
+        "rev": "080e8b48b0318b38143d5865de9334f46d51fce3",
         "type": "github"
       },
       "original": {
@@ -47,16 +47,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1743127615,
-        "narHash": "sha256-+sMGqywrSr50BGMLMeY789mSrzjkoxZiu61eWjYS/8o=",
+        "lastModified": 1749744770,
+        "narHash": "sha256-MEM9XXHgBF/Cyv1RES1t6gqAX7/tvayBC1r/KPyK1ls=",
         "owner": "LnL7",
         "repo": "nix-darwin",
-        "rev": "fc843893cecc1838a59713ee3e50e9e7edc6207c",
+        "rev": "536f951efb1ccda9b968e3c9dee39fbeb6d3fdeb",
         "type": "github"
       },
       "original": {
         "owner": "LnL7",
-        "ref": "nix-darwin-24.11",
+        "ref": "nix-darwin-25.05",
         "repo": "nix-darwin",
         "type": "github"
       }
@@ -128,17 +128,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1748247498,
-        "narHash": "sha256-vGaTioMYANUtoPvQAHawsCR6Z19R59p4EtaoXTOhGmw=",
-        "ref": "refs/heads/main",
-        "rev": "4f97ea6e58371027ae71861d6ef2522b25ab887d",
-        "revCount": 279,
-        "type": "git",
-        "url": "https://git.sapphiccode.net/SapphicCode/universe"
+        "lastModified": 1751708264,
+        "narHash": "sha256-llF+HH68rXK/uuZleEPaK7oDajEVu/rxCNZM4SKMyt8=",
+        "owner": "SapphicCode",
+        "repo": "nix",
+        "rev": "9ad7534b9606a0fc7b8600e42d17c499c4250d1e",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://git.sapphiccode.net/SapphicCode/universe"
+        "owner": "SapphicCode",
+        "repo": "nix",
+        "type": "github"
       }
     },
     "systems": {

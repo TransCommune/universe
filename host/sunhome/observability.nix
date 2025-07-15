@@ -1,4 +1,4 @@
-_: {
+{constants, ...}: {
   virtualisation.quadlet.containers = {
     victoriametrics = {
       unitConfig = {
@@ -8,7 +8,7 @@ _: {
         image = "registry-1.cc/victoriametrics/victoria-metrics:stable";
         exec = "-storageDataPath=/data -retentionPeriod=100y";
         volumes = ["/apps/victoriametrics:/data:U"];
-        publishPorts = ["127.0.0.1:8428:8428"];
+        publishPorts = ["127.0.0.1:8428:8428" "${constants.tailscale.ip.sunhome}:8428:8428"];
       };
     };
 
@@ -20,7 +20,7 @@ _: {
         image = "registry-1.cc/victoriametrics/victoria-logs:latest";
         exec = "-storageDataPath=/data -retentionPeriod=100y";
         volumes = ["/apps/victorialogs:/data:U"];
-        publishPorts = ["127.0.0.1:9428:9428"];
+        publishPorts = ["127.0.0.1:9428:9428" "${constants.tailscale.ip.sunhome}:9428:9428"];
       };
     };
   };
