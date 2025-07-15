@@ -3,10 +3,9 @@
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
   inputs.nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+  inputs.constants.url = "github:TransCommune/constants";
 
-  inputs.quadlet = {
-    url = "github:SEIAROTg/quadlet-nix";
-  };
+  inputs.quadlet.url = "github:SEIAROTg/quadlet-nix";
 
   inputs.sc = {
     url = "github:SapphicCode/nix";
@@ -14,12 +13,11 @@
     inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     nixpkgs-unstable,
-    quadlet,
-    sc,
+    constants,
   }: let
     unstable = import nixpkgs-unstable {
       config.allowUnfree = true;
@@ -32,15 +30,12 @@
     nixosConfigurations = {
       sunhome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {
-          inherit unstable;
-          constants = self.nixosModules.constants;
-        };
+        specialArgs = {inherit unstable constants;};
         modules = [
           ./host/sunhome
           ./host/sunhome/hardware-configuration.nix
-          quadlet.nixosModules.quadlet
-          sc.nixosModules.user_automata
+          inputs.quadlet.nixosModules.quadlet
+          inputs.sc.nixosModules.user_automata
         ];
       };
     };

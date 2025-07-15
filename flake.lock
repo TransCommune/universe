@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "constants": {
+      "locked": {
+        "lastModified": 1752583457,
+        "narHash": "sha256-y60GClMNOURZleZs4f5QGbdOB9F8r0ZUMo75GJV56Os=",
+        "owner": "TransCommune",
+        "repo": "constants",
+        "rev": "9b6fb3d330d3ea68f70a5387915ea35b13a9e431",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TransCommune",
+        "repo": "constants",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -109,6 +124,7 @@
     },
     "root": {
       "inputs": {
+        "constants": "constants",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "quadlet": "quadlet",
