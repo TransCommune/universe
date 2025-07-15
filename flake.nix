@@ -27,14 +27,14 @@
     };
   in {
     nixosModules = {
-      constants = import ./nixos-module/constants {};
+      constants = import ./nixos-module/constants;
     };
     nixosConfigurations = {
       sunhome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
           inherit unstable;
-          constants = self.constants;
+          constants = self.nixosModules.constants;
         };
         modules = [
           ./host/sunhome
