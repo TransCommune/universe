@@ -18,6 +18,7 @@
     nixpkgs,
     nixpkgs-unstable,
     constants,
+    ...
   }: let
     unstable = import nixpkgs-unstable {
       config.allowUnfree = true;
