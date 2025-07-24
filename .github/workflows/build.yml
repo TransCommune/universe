@@ -15,6 +15,8 @@ jobs:
         lix_conf: "trusted-users = runner"
         github_access_token: ${{ steps.app-token.outputs.token }}
         lix_on_tmpfs: "true"
+    - name: "Checkout"
+      uses: actions/checkout@v4
     - name: "Build sunhome"
       shell: bash
       run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
