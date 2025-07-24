@@ -1,0 +1,20 @@
+name: Build NixOS
+on:
+  workflow_dispatch:
+jobs:
+  build-nixos:
+    strategy:
+      matrix:
+        host:
+          - sunhome
+    runs-on: blacksmith-2vcpu-ubuntu-2204
+    steps:
+    - name: "Install Lix"
+      uses: canidae-solutions/lix-quick-install-action@v3.0.2
+      with:
+        lix_conf: "trusted-users = runner"
+        github_access_token: ${{ steps.app-token.outputs.token }}
+        lix_on_tmpfs: "true"
+    - name: "Build sunhome"
+      shell: bash
+      run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
