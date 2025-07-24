@@ -7,7 +7,7 @@ jobs:
       matrix:
         host:
           - sunhome
-    runs-on: blacksmith-2vcpu-ubuntu-2204
+    runs-on: blacksmith-16vcpu-ubuntu-2404
     steps:
     - name: "Install Lix"
       uses: canidae-solutions/lix-quick-install-action@v3.0.2
