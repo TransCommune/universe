@@ -17,17 +17,14 @@
     self,
     nixpkgs,
     nixpkgs-unstable,
-    constants,
     ...
   }: let
     unstable = import nixpkgs-unstable {
       config.allowUnfree = true;
       system = "x86_64-linux";
     };
+    constants = inputs.constants.nixosModules.constants;
   in {
-    nixosModules = {
-      constants = import ./nixos-module/constants;
-    };
     nixosConfigurations = {
       sunhome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
