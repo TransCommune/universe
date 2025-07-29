@@ -5,11 +5,6 @@
         [global]
           e2ds  # index files on startup and upload
           e2ts  # scan files for media tags on startup and upload
-
-        [/media]
-          /mnt/media
-          accs:
-            r: *
       '';
       mode = "0644";
     };
