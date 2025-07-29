@@ -23,7 +23,6 @@
         "/etc/copyparty.d:/cfg:U"
         "/magpie/media:/mnt/media"
       ];
-      networks = ["copyparty.network"];
       publishPorts = [
         "3923:3923/tcp"
       ];
