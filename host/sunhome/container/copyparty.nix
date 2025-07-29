@@ -18,7 +18,7 @@
   virtualisation.quadlet.containers.copyparty = {
     containerConfig = {
       name = "copyparty";
-      image = "ghcr.io/9001/copyparty/ac:latest";
+      image = "ghcr.io/9001/copyparty-ac:latest";
       volumes = [
         "/etc/copyparty.d:/cfg:U"
         "/magpie/media:/mnt/media"
