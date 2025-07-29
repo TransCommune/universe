@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, lib, ...}: {
   environment.etc = {
     "copyparty.d/mounts.cfg" = {
       text = ''
@@ -27,8 +27,8 @@
       publishPorts = [
         "3923:3923/tcp"
       ];
-      user = config.users.users.nas.uid;
-      group = config.users.groups.nas.gid;
+      user = toString config.users.users.nas.uid;
+      group = toString config.users.groups.nas.gid;
     };
     unitConfig = {
       After = ["magpie.target"];
