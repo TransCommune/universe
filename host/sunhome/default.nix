@@ -30,6 +30,7 @@
     ./container/homeassistant.nix
     ./container/rustdesk.nix
     ./container/seafile.nix
+    ./container/copyparty.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
