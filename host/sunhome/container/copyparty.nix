@@ -1,6 +1,6 @@
-{config, lib, ...}: {
+{config, ...}: {
   environment.etc = {
-    "copyparty.d/mounts.cfg" = {
+    "copyparty.d/mounts.conf" = {
       text = ''
         [global]
           e2ds  # index files on startup and upload
