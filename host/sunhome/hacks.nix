@@ -7,7 +7,7 @@
     options = "bind";
     wantedBy = ["magpie-media-bindmounts.target"];
     bindsTo = ["magpie-media-bindmounts.target"];
-    after = ["magpie.target"]
+    after = ["magpie.target"];
   };
   activeLibraryDir = "/magpie/media/Games/ActiveLibrary";
   retroDeckDir = "/magpie/media/Games/Sync/RetroDeck";
