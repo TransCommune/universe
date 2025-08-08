@@ -4,7 +4,7 @@
     containerConfig = {
       name = "seafile";
       hostname = "seafile";
-      image = "docker.io/seafileltd/seafile-mc:12.0.11";
+      image = "docker.io/seafileltd/seafile-mc:12.0.14";
       volumes = [
         "/apps/seafile/data:/shared"
       ];
