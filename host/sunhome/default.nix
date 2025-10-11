@@ -26,7 +26,6 @@
     ./postgres.nix
 
     ./container/immich.nix
-    ./container/unifi.nix
     ./container/homeassistant.nix
     ./container/rustdesk.nix
     ./container/seafile.nix
