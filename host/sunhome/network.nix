@@ -25,6 +25,7 @@
 
         IPv4Forwarding = true;
         IPv6Forwarding = true;
+        IPv6AcceptRA = true;
 
         VLAN = ["br0.10"];
       };
@@ -54,6 +55,7 @@
       matchConfig.Name = "br1";
       networkConfig = {
         Address = "192.168.12.250/24";
+        IPv6AcceptRA = true;
       };
       dhcpV4Config.UseGateway = "no";
     };
