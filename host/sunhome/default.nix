@@ -17,6 +17,7 @@
     ./dashboard.nix
     ./samba.nix
     ./libvirt.nix
+    ./incus.nix
     ./nginx.nix
     ./wireproxy.nix
     ./observability.nix
