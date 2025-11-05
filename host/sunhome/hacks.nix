@@ -1,10 +1,10 @@
 {...}: let
-  bindMount = what: where: {
+  bindMount = what: where: ro: {
     description = "mount ${what} to ${where}";
     what = what;
     where = where;
     type = "none";
-    options = "bind";
+    options = if ro then "bind,ro" else "bind";
     wantedBy = ["magpie-media-bindmounts.target"];
     bindsTo = ["magpie-media-bindmounts.target"];
     after = ["magpie.target"];
@@ -12,10 +12,10 @@
   activeLibraryDir = "/magpie/media/Games/ActiveLibrary";
   retroDeckDir = "/magpie/media/Games/Sync/RetroDeck";
   androidDir = "/magpie/media/Games/Sync/Android";
-  bindMountRetroDeckROM = type: (bindMount "${activeLibraryDir}/roms/${type}" "${retroDeckDir}/roms/${type}");
-  bindMountRetroDeckSave = type: (bindMount "${activeLibraryDir}/saves/${type}" "${retroDeckDir}/saves/${type}");
-  bindMountAndroidROM = type: (bindMount "${activeLibraryDir}/roms/${type}" "${androidDir}/roms/${type}");
-  bindMountAndroidSave = type: (bindMount "${activeLibraryDir}/saves/${type}" "${androidDir}/saves/${type}");
+  bindMountRetroDeckROM = type: (bindMount "${activeLibraryDir}/roms/${type}" "${retroDeckDir}/roms/${type}" true);
+  bindMountRetroDeckSave = type: (bindMount "${activeLibraryDir}/saves/${type}" "${retroDeckDir}/saves/${type}" false);
+  bindMountAndroidROM = type: (bindMount "${activeLibraryDir}/roms/${type}" "${androidDir}/roms/${type}" true);
+  bindMountAndroidSave = type: (bindMount "${activeLibraryDir}/saves/${type}" "${androidDir}/saves/${type}" false);
 in {
   systemd.services.syncthing = {
     after = ["magpie-media-bindmounts.target"];
@@ -27,7 +27,7 @@ in {
     requires = ["magpie.target"];
   };
   systemd.mounts = [
-    (bindMount "${activeLibraryDir}/bios" "${retroDeckDir}/bios")
+    (bindMount "${activeLibraryDir}/bios" "${retroDeckDir}/bios" true)
     (bindMountRetroDeckROM "dreamcast")
     (bindMountRetroDeckROM "easyrpg")
     (bindMountRetroDeckROM "gb")
@@ -57,36 +57,36 @@ in {
     (bindMountRetroDeckSave "gc")
     (bindMountRetroDeckSave "nds")
 
-    #(bindMountAndroidROM "dreamcast")
+    (bindMountAndroidROM "dreamcast")
     (bindMountAndroidROM "gb")
     (bindMountAndroidROM "gba")
     (bindMountAndroidROM "gbc")
-    #(bindMountAndroidROM "gc")
+    (bindMountAndroidROM "gc")
     (bindMountAndroidROM "n3ds")
     (bindMountAndroidROM "n64")
     (bindMountAndroidROM "nds")
     (bindMountAndroidROM "nes")
     (bindMountAndroidROM "pcengine")
-    #(bindMountAndroidROM "ps2")
-    #(bindMountAndroidROM "ps3")
+    (bindMountAndroidROM "ps2")
+    (bindMountAndroidROM "ps3")
     (bindMountAndroidROM "psp")
-    #(bindMountAndroidROM "psvita")
+    (bindMountAndroidROM "psvita")
     (bindMountAndroidROM "psx")
     (bindMountAndroidROM "snes")
-    #(bindMountAndroidROM "switch")
-    #(bindMountAndroidROM "wii")
-    #(bindMountAndroidROM "wiiu")
-    #(bindMountAndroidROM "xbox360")
+    (bindMountAndroidROM "switch")
+    (bindMountAndroidROM "wii")
+    (bindMountAndroidROM "wiiu")
+    (bindMountAndroidROM "xbox360")
 
     (bindMountAndroidSave "gb")
     (bindMountAndroidSave "gbc")
     (bindMountAndroidSave "gba")
     (bindMountAndroidSave "nds")
 
-    (bindMount "${activeLibraryDir}/custom_data/azahar" "${retroDeckDir}/custom_data/azahar")
-    (bindMount "${activeLibraryDir}/custom_data/dolphin" "${retroDeckDir}/custom_data/dolphin")
-    (bindMount "${activeLibraryDir}/custom_data/eden" "${retroDeckDir}/custom_data/eden")
-    (bindMount "${activeLibraryDir}/custom_data/ryujinx" "${retroDeckDir}/custom_data/ryujinx")
+    (bindMount "${activeLibraryDir}/custom_data/azahar" "${retroDeckDir}/custom_data/azahar" false)
+    (bindMount "${activeLibraryDir}/custom_data/dolphin" "${retroDeckDir}/custom_data/dolphin" false)
+    (bindMount "${activeLibraryDir}/custom_data/eden" "${retroDeckDir}/custom_data/eden" false)
+    (bindMount "${activeLibraryDir}/custom_data/ryujinx" "${retroDeckDir}/custom_data/ryujinx" false)
   ];
 
   services.syncthing = {
