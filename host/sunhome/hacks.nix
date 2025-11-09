@@ -4,7 +4,10 @@
     what = what;
     where = where;
     type = "none";
-    options = if ro then "bind,ro" else "bind";
+    options =
+      if ro
+      then "bind,ro"
+      else "bind";
     wantedBy = ["magpie-media-bindmounts.target"];
     bindsTo = ["magpie-media-bindmounts.target"];
     after = ["magpie.target"];
@@ -32,6 +35,7 @@ in {
     (bindMountRetroDeckROM "easyrpg")
     (bindMountRetroDeckROM "gb")
     (bindMountRetroDeckROM "gba")
+    (bindMountRetroDeckROM "gbah")
     (bindMountRetroDeckROM "gbc")
     (bindMountRetroDeckROM "megadrive")
     (bindMountRetroDeckROM "model2")
@@ -60,6 +64,7 @@ in {
     (bindMountAndroidROM "dreamcast")
     (bindMountAndroidROM "gb")
     (bindMountAndroidROM "gba")
+    (bindMountAndroidROM "gbah")
     (bindMountAndroidROM "gbc")
     (bindMountAndroidROM "gc")
     (bindMountAndroidROM "n3ds")
