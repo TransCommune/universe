@@ -10,6 +10,8 @@
     ../../nixos-module/openssh.nix
     ../../nixos-module/user/nas.nix
 
+    ./amd-hackfix.nix
+
     ./backup.nix
     ./network.nix
     ./zfs.nix
