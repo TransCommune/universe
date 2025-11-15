@@ -66,6 +66,8 @@
     dolphin-emu
     mame.tools
     ctrtool
+
+    ghostty.terminfo
   ];
 
   boot.loader.systemd-boot.enable = true;
