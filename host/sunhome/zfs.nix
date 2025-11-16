@@ -8,6 +8,7 @@ in {
   systemd.targets.magpie = {
     description = "The ZFS NAS mount";
     requires = ["zfs-import-all.service"];
+    unitConfig.RequiresMountsFor = ["/magpie/media"];
   };
 
   systemd.services."zfs-import-all" = {
