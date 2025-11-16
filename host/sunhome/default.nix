@@ -97,6 +97,7 @@
 
   services.jellyfin.enable = true;
   services.jellyfin.group = "nas";
+  systemd.services.jellyfin.requires = ["magpie.target"];
 
   hardware.graphics = {
     enable = true;
