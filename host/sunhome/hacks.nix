@@ -1,33 +1,40 @@
-{...}: let
+{ ... }:
+let
   bindMount = what: where: ro: {
     description = "mount ${what} to ${where}";
     what = what;
     where = where;
     type = "none";
     options =
-      if ro
-      then "bind,ro"
-      else "bind";
-    wantedBy = ["magpie-media-bindmounts.target"];
-    bindsTo = ["magpie-media-bindmounts.target"];
-    after = ["magpie.target"];
+      if ro then
+        "bind" # previously bind,ro but some stuff likes writing metadata back (xenia?)
+      else
+        "bind";
+    wantedBy = [ "magpie-media-bindmounts.target" ];
+    bindsTo = [ "magpie-media-bindmounts.target" ];
+    after = [ "magpie.target" ];
   };
   activeLibraryDir = "/magpie/media/Games/ActiveLibrary";
   retroDeckDir = "/magpie/media/Games/Sync/RetroDeck";
   androidDir = "/magpie/media/Games/Sync/Android";
-  bindMountRetroDeckROM = type: (bindMount "${activeLibraryDir}/roms/${type}" "${retroDeckDir}/roms/${type}" true);
-  bindMountRetroDeckSave = type: (bindMount "${activeLibraryDir}/saves/${type}" "${retroDeckDir}/saves/${type}" false);
-  bindMountAndroidROM = type: (bindMount "${activeLibraryDir}/roms/${type}" "${androidDir}/roms/${type}" true);
-  bindMountAndroidSave = type: (bindMount "${activeLibraryDir}/saves/${type}" "${androidDir}/saves/${type}" false);
-in {
+  bindMountRetroDeckROM =
+    type: (bindMount "${activeLibraryDir}/roms/${type}" "${retroDeckDir}/roms/${type}" true);
+  bindMountRetroDeckSave =
+    type: (bindMount "${activeLibraryDir}/saves/${type}" "${retroDeckDir}/saves/${type}" false);
+  bindMountAndroidROM =
+    type: (bindMount "${activeLibraryDir}/roms/${type}" "${androidDir}/roms/${type}" true);
+  bindMountAndroidSave =
+    type: (bindMount "${activeLibraryDir}/saves/${type}" "${androidDir}/saves/${type}" false);
+in
+{
   systemd.services.syncthing = {
-    after = ["magpie-media-bindmounts.target"];
-    requires = ["magpie-media-bindmounts.target"];
+    after = [ "magpie-media-bindmounts.target" ];
+    requires = [ "magpie-media-bindmounts.target" ];
   };
 
   systemd.targets.magpie-media-bindmounts = {
     description = "The ZFS NAS mount";
-    requires = ["magpie.target"];
+    requires = [ "magpie.target" ];
   };
   systemd.mounts = [
     (bindMount "${activeLibraryDir}/bios" "${retroDeckDir}/bios" true)
