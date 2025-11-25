@@ -5,31 +5,21 @@
 }: let
   zfsPackage = pkgs.zfs_2_3;
 in {
+  # Target that other services can depend on to ensure magpie pool is mounted
   systemd.targets.magpie = {
     description = "The ZFS NAS mount";
-    requires = ["zfs-import-all.service"];
-    unitConfig.RequiresMountsFor = ["/magpie/media"];
-  };
-
-  systemd.services."zfs-import-all" = {
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-    };
-
-    script = ''
-      set -eux -o pipefail
-      ${zfsPackage}/bin/zpool import -a
-      ${zfsPackage}/bin/zfs load-key -a
-      ${zfsPackage}/bin/zfs mount -a
-    '';
+    requires = ["zfs-import-magpie.service"];
+    after = ["zfs-import-magpie.service" "zfs-mount.service"];
   };
 
   boot.zfs = {
     package = zfsPackage;
     forceImportRoot = false;
+    extraPools = ["magpie" "moonhome"];
   };
+
   boot.supportedFilesystems = ["zfs"];
+
   services.zfs = {
     autoScrub = {
       enable = true;
