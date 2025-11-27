@@ -12,6 +12,11 @@ in {
     after = ["zfs-import-magpie.service" "zfs-mount.service"];
   };
 
+  boot.initrd.systemd.services.zfs-import-sunhome = {
+    after = ["systemd-cryptsetup@luks\\x2droot.service"];
+    requires = ["systemd-cryptsetup@luks\\x2droot.service"];
+  };
+
   boot.zfs = {
     package = zfsPackage;
     forceImportRoot = false;
