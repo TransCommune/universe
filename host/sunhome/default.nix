@@ -73,7 +73,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-root".device = "/dev/nvme0n1p2";
+  boot.initrd.luks.devices."luks-root".device = "/dev/disk/by-partuuid/4ad61f46-d777-44ba-b8f9-abd45422cc16";
   boot.initrd.systemd.enable = true;
 
   # LTS to avoid ZFS breakage
