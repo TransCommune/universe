@@ -84,6 +84,7 @@
         IPv4Forwarding = true;
         IPv6Forwarding = true;
         IPv6AcceptRA = true;
+      };
     };
   };
 }
