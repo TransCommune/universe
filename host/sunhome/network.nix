@@ -76,15 +76,5 @@
       };
       dhcpV4Config.UseGateway = "no";
     };
-
-    # setup forwarding by default on all other devices
-    networks."99-default" = {
-      matchConfig.Name = "*";
-      networkConfig = {
-        IPv4Forwarding = true;
-        IPv6Forwarding = true;
-        IPv6AcceptRA = true;
-      };
-    };
   };
 }
