@@ -6,6 +6,16 @@
   lib,
   ...
 }: {
+  # disable some stuff
+  boot.kernelParams = [
+    "processor.max_cstate=1"
+    "idle=nomwait"
+    "amd_pstate=disable"
+    "pcie_aspm=off"
+    "mem_sleep_default=s2idle"
+  ];
+  powerManagement.cpuFreqGovernor = "performance";
+
   # Load MSR kernel module
   boot.kernelModules = ["msr"];
 
