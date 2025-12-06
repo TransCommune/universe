@@ -105,7 +105,7 @@
     ];
   };
 
-  services.logind.settings.Login.HandleLidSwitch = "ignore";
+  services.logind.lidSwitch = "ignore";
 
   services.netdata.enable = true;
 
