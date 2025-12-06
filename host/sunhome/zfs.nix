@@ -20,7 +20,7 @@ in {
   boot.zfs = {
     package = zfsPackage;
     forceImportRoot = false;
-    extraPools = ["magpie" "moonhome"];
+    extraPools = ["magpie"];
   };
 
   boot.supportedFilesystems = ["zfs"];
