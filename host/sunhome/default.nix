@@ -105,6 +105,8 @@
     ];
   };
 
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
+
   services.netdata.enable = true;
 
   system.stateVersion = "23.11";
