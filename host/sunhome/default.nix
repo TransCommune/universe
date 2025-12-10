@@ -10,6 +10,8 @@
     ../../nixos-module/openssh.nix
     ../../nixos-module/user/nas.nix
 
+    ./amd-power.nix
+
     ./backup.nix
     ./network.nix
     ./zfs.nix
@@ -40,7 +42,7 @@
     enable = true;
     openFirewall = true;
   };
- 
+
   powerManagement.cpuFreqGovernor = "powersave";
 
   programs.nix-ld.enable = true;
