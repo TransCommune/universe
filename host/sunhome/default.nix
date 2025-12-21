@@ -110,7 +110,23 @@
     ];
   };
 
+  # laptop things
   services.logind.lidSwitch = "ignore";
+  systemd.services.laptop-backlight = {
+    description = "Set laptop backlight to zero after successful boot";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash -c 'echo 0 > /sys/class/backlight/*/brightness'";
+    };
+  };
+  systemd.timers.laptop-backlight = {
+    description = "Run laptop backlight service after successful boot";
+    timerConfig = {
+      OnBootSec = "5min";
+      Unit = "laptop-backlight.service";
+    };
+    wantedBy = ["timers.target"];
+  };
 
   system.stateVersion = "23.11";
 }
