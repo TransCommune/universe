@@ -111,7 +111,7 @@
   };
 
   # laptop things
-  services.logind.lidSwitch = "ignore";
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
   systemd.services.laptop-backlight = {
     description = "Set laptop backlight to zero after successful boot";
     serviceConfig = {
