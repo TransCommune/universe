@@ -22,6 +22,9 @@ in {
     forceImportRoot = false;
     extraPools = ["magpie"];
   };
+  boot.kernelParams = [
+    "zfs.zfs_arc_max=8589934592" # 8 GiB
+  ];
 
   boot.supportedFilesystems = ["zfs"];
 
