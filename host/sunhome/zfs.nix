@@ -54,7 +54,7 @@ in {
     description = "TRIM for %i ZFS pool";
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${zfsPackage.bin}/zpool trim %i";
+      ExecStart = "${zfsPackage}/bin/zpool trim %i";
     };
   };
 
