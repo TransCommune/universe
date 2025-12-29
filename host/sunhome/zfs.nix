@@ -59,5 +59,8 @@ in {
   };
 
   # enable it for sunhome
-  systemd.timers."zfs-trim-weekly@sunhome".wantedBy = ["timers.target"];
+  systemd.timers."zfs-trim-weekly@sunhome" = {
+    enable = true;
+    overrideStrategy = "asDropin";
+  };
 }
