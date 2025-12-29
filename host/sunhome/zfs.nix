@@ -48,7 +48,7 @@ in {
       OnCalendar = "weekly";
       Persistent = true;
     };
-    enable = false;
+    wantedBy = [];
   };
   systemd.services."zfs-trim-weekly@" = {
     description = "TRIM for %i ZFS pool";
@@ -60,7 +60,7 @@ in {
 
   # enable it for sunhome
   systemd.timers."zfs-trim-weekly@sunhome" = {
-    enable = true;
+    wantedBy = ["timers.target"];
     overrideStrategy = "asDropin";
   };
 }
