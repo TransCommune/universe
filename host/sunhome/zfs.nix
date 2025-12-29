@@ -40,8 +40,5 @@ in {
       daily = 7;
     };
   };
-  systemd.timers."zfs-trim-weekly@sunhome" = {
-    enable = true;
-    wantedBy = ["timers.target"];
-  };
+  systemd.timers."zfs-trim-weekly@sunhome".enable = true;
 }
