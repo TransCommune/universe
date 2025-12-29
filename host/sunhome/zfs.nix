@@ -40,5 +40,24 @@ in {
       daily = 7;
     };
   };
-  systemd.timers."zfs-trim-weekly@sunhome".enable = true;
+
+  # make our own zfs-trim-weekly@, I guess
+  systemd.timers."zfs-trim-weekly@" = {
+    description = "Periodic TRIM for %i ZFS pool";
+    timerConfig = {
+      OnCalendar = "weekly";
+      Persistent = true;
+    };
+    enable = false;
+  };
+  systemd.services."zfs-trim-weekly@" = {
+    description = "TRIM for %i ZFS pool";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${zfsPackage.bin}/zpool trim %i";
+    };
+  };
+
+  # enable it for sunhome
+  systemd.timers."zfs-trim-weekly@sunhome".wantedBy = ["timers.target"];
 }

@@ -35,4 +35,4 @@ jobs:
 
                 set -x
                 GIT_REV=$(git rev-parse HEAD)
-                ssh -o "StrictHostKeyChecking no" automata@100.84.223.80 sudo nixos-rebuild switch --flake "github:TransCommune/universe?rev=${GIT_REV}"
+                ssh -o "StrictHostKeyChecking no" automata@100.84.223.80 sudo nixos-rebuild boot --flake "github:TransCommune/universe?rev=${GIT_REV}"
