@@ -118,6 +118,10 @@
       environments = {
         "SEAFILE_MYSQL_DB_HOST" = "db";
         "SEAFILE_MYSQL_DB_PORT" = "3306";
+        "SEAFILE_MYSQL_DB_USER" = "root";
+        "SEAFILE_MYSQL_DB_CCNET_DB_NAME" = "ccnet_db";
+        "SEAFILE_MYSQL_DB_SEAFILE_DB_NAME" = "seafile_db";
+        "SEAFILE_MYSQL_DB_SEAHUB_DB_NAME" = "seahub_db";
         "SEAFILE_LOG_TO_STDOUT" = "false";
         "NOTIFICATION_SERVER_LOG_LEVEL" = "info";
       };
