@@ -13,22 +13,26 @@
       ];
       environments = {
         "TIME_ZONE" = "Etc/UTC";
-        "DB_HOST" = "db";
-        "SEAFILE_ADMIN_EMAIL" = "aurelia@schittler.dev";
-        "SEAFILE_SERVER_LETSENCRYPT" = "false";
+        "SEAFILE_MYSQL_DB_HOST" = "db";
+        "SEAFILE_MYSQL_DB_PORT" = "3306";
+        "SEAFILE_MYSQL_DB_USER" = "seafile";
+        "SEAFILE_MYSQL_DB_CCNET_DB_NAME" = "ccnet_db";
+        "SEAFILE_MYSQL_DB_SEAFILE_DB_NAME" = "seafile_db";
+        "SEAFILE_MYSQL_DB_SEAHUB_DB_NAME" = "seahub_db";
         "SEAFILE_SERVER_HOSTNAME" = "seafile.nullvoid.space";
         "SEAFILE_SERVER_PROTOCOL" = "https";
-        "SEADOC_SERVER_URL" = "https://seafile.nullvoid.space/sdoc-server";
+        "SEAFILE_LOG_TO_STDOUT" = "true";
+        "ENABLE_GO_FILESERVER" = "true";
         "ENABLE_SEADOC" = "true";
+        "SEADOC_SERVER_URL" = "https://seafile.nullvoid.space/sdoc-server";
         "CACHE_PROVIDER" = "memcached";
         "MEMCACHED_HOST" = "memcached";
         "MEMCACHED_PORT" = "11211";
-        "ENABLE_SEAFILE_AI" = "false";
-        "MD_FILE_COUNT_LIMIT" = "10000";
-        "ENABLE_GO_FILESERVER" = "true";
         "ENABLE_NOTIFICATION_SERVER" = "true";
         "INNER_NOTIFICATION_SERVER_URL" = "http://notification-server:8083";
         "NOTIFICATION_SERVER_URL" = "https://seafile.nullvoid.space/notification";
+        "ENABLE_SEAFILE_AI" = "false";
+        "MD_FILE_COUNT_LIMIT" = "10000";
       };
       publishPorts = [
         "127.0.0.1:8083:80"
