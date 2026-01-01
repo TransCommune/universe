@@ -26,6 +26,9 @@
         "ENABLE_SEAFILE_AI" = "false";
         "MD_FILE_COUNT_LIMIT" = "10000";
         "ENABLE_GO_FILESERVER" = "true";
+        "ENABLE_NOTIFICATION_SERVER" = "true";
+        "INNER_NOTIFICATION_SERVER_URL" = "http://notification-server:8083";
+        "NOTIFICATION_SERVER_URL" = "https://seafile.nullvoid.space/notification";
       };
       publishPorts = [
         "127.0.0.1:8083:80"
@@ -85,17 +88,13 @@
         "/etc/seafile-database-sdoc.env"
       ];
       environments = {
-        "SEAFILE_MYSQL_DB_HOST" = "db";
-        "SEAFILE_MYSQL_DB_PORT" = "3306";
-        "SEAFILE_MYSQL_DB_USER" = "root";
-        "SEAFILE_MYSQL_DB_CCNET_DB_NAME" = "ccnet_db";
-        "SEAFILE_MYSQL_DB_SEAFILE_DB_NAME" = "seafile_db";
-        "SEAFILE_MYSQL_DB_SEAHUB_DB_NAME" = "seahub_db";
+        "DB_HOST" = "db";
+        "DB_PORT" = "3306";
+        "DB_USER" = "root";
+        "DB_NAME" = "seahub_db";
         "TIME_ZONE" = "Etc/UTC";
         "NON_ROOT" = "false";
         "SEAHUB_SERVICE_URL" = "https://seafile.nullvoid.space";
-        "INNER_NOTIFICATION_SERVER_URL" = "http://notification-server:8083";
-        "NOTIFICATION_SERVER_URL" = "https://seafile.nullvoid.space/notification";
       };
       publishPorts = [
         "127.0.0.1:8085:80"
