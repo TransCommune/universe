@@ -4,7 +4,7 @@
     containerConfig = {
       name = "seafile";
       hostname = "seafile";
-      image = "docker.io/seafileltd/seafile-mc:12.0.14";
+      image = "docker.io/seafileltd/seafile-mc:13.0-latest";
       volumes = [
         "/apps/seafile/data:/shared"
       ];
@@ -20,6 +20,12 @@
         "SEAFILE_SERVER_PROTOCOL" = "https";
         "SEADOC_SERVER_URL" = "https://seafile.nullvoid.space/sdoc-server";
         "ENABLE_SEADOC" = "true";
+        "CACHE_PROVIDER" = "memcached";
+        "MEMCACHED_HOST" = "memcached";
+        "MEMCACHED_PORT" = "11211";
+        "ENABLE_SEAFILE_AI" = "false";
+        "MD_FILE_COUNT_LIMIT" = "10000";
+        "ENABLE_GO_FILESERVER" = "true";
       };
       publishPorts = [
         "127.0.0.1:8083:80"
@@ -70,7 +76,7 @@
     containerConfig = {
       name = "seafile-sdoc";
       hostname = "seadoc";
-      image = "docker.io/seafileltd/sdoc-server:1.0-latest";
+      image = "docker.io/seafileltd/sdoc-server:2.0-latest";
       networks = ["seafile.network"];
       volumes = [
         "/apps/seafile/seadoc:/shared"
