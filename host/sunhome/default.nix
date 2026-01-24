@@ -30,7 +30,6 @@
     ./postgres.nix
 
     ./container/immich.nix
-    ./container/homeassistant.nix
     ./container/rustdesk.nix
     ./container/seafile.nix
     ./container/copyparty.nix
