@@ -30,8 +30,8 @@
 
       # hardening
       CapabilityBoundingSet = ["CAP_CHOWN" "CAP_FOWNER" "CAP_DAC_OVERRIDE"];
-      ReadOnlyPaths = ["/etc"];
-      InaccessiblePaths = ["/boot" "/home" "/var"];
+      ReadOnlyPaths = ["/etc" "/var"];
+      InaccessiblePaths = ["/boot" "/home"];
       ReadWritePaths = ["/var/lib/copyparty"];
       ProtectProc = "invisible";
       ProtectKernelTunables = true;
