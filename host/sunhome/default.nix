@@ -18,6 +18,7 @@
 
     ./dashboard.nix
     ./samba.nix
+    ./copyparty.nix
     ./libvirt.nix
     ./incus.nix
     ./nginx.nix
@@ -32,7 +33,6 @@
     ./container/immich.nix
     ./container/rustdesk.nix
     ./container/seafile.nix
-    ./container/copyparty.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
