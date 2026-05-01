@@ -11,7 +11,7 @@
     };
   };
 
-  services.copyparty = {
+  systemd.services.copyparty = {
     unitConfig = {
       Description = "a cute file server";
       RequiresMountsFor = ["/magpie/media"];
