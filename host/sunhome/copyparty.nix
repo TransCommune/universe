@@ -32,6 +32,7 @@
       CapabilityBoundingSet = ["CAP_CHOWN" "CAP_FOWNER" "CAP_DAC_OVERRIDE"];
       ReadOnlyPaths = ["/etc"];
       InaccessiblePaths = ["/boot" "/home" "/var"];
+      ReadWritePaths = ["/var/lib/copyparty"];
       ProtectProc = "invisible";
       ProtectKernelTunables = true;
       ProtectKernelModules = true;
