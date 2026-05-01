@@ -79,7 +79,7 @@
   boot.initrd.systemd.enable = true;
 
   # LTS to avoid ZFS breakage
-  boot.kernelPackages = pkgs.linuxPackages_6_17;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   networking.hostName = "sunhome";
   networking.hostId = "5ffb3d23";
