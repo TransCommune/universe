@@ -10,7 +10,7 @@ in {
       hostname = "immich_server";
       image = "ghcr.io/immich-app/immich-server:${version}";
       volumes = [
-        "/magpie/apps/immich/upload:/usr/src/app/upload:U"
+        "/magpie/apps/immich/upload:/usr/src/app/upload"
         "/etc/immich-localtime:/etc/localtime:ro"
       ];
       environmentFiles = [
