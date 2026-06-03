@@ -16,6 +16,7 @@
       superuser_map      root      postgres
       superuser_map      postgres  postgres
       superuser_map      atticd    attic
+      superuser_map      homebox   homebox
       superuser_map      paperless paperless
     '';
     authentication = pkgs.lib.mkOverride 10 ''
