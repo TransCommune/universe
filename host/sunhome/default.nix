@@ -25,7 +25,8 @@
     ./wireproxy.nix
     ./observability.nix
     ./attic.nix
-    #./paperless.nix
+    ./paperless.nix
+    ./homebox.nix
     # TODO: fix for 25.11
     ./hacks.nix
     ./postgres.nix

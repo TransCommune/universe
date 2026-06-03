@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  zfsPackage = pkgs.zfs_2_3;
+  zfsPackage = pkgs.zfs;
 in {
   # Target that other services can depend on to ensure magpie pool is mounted
   systemd.targets.magpie = {
