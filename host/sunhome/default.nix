@@ -55,7 +55,7 @@
     fd
     file
     htop
-    nodejs_20
+    nodejs
     nsz
     pv
     restic
