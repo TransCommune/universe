@@ -1,7 +1,7 @@
 {...}: let
-  version = "v2.5.6";
+  version = "v3.1.0";
   redisImage = "registry.hub.docker.com/library/redis:6.2-alpine@sha256:51d6c56749a4243096327e3fb964a48ed92254357108449cb6e23999c37773c5";
-  postgresImage = "registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0";
+  postgresImage = "ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0";
 in {
   virtualisation.quadlet.networks.immich = {};
   virtualisation.quadlet.containers.immich-server = {
@@ -57,7 +57,7 @@ in {
       RequiresMountsFor = [
         "/apps/immich"
       ];
-    };
+      };
   };
 
   virtualisation.quadlet.containers.immich-redis = {
@@ -82,6 +82,7 @@ in {
         "/etc/immich-postgres.env"
       ];
       networks = ["immich.network"];
+      shmSize = "128mb";
     };
     unitConfig = {
       RequiresMountsFor = [
