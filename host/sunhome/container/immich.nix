@@ -57,7 +57,7 @@ in {
       RequiresMountsFor = [
         "/apps/immich"
       ];
-      };
+    };
   };
 
   virtualisation.quadlet.containers.immich-redis = {
