@@ -1,0 +1,33 @@
+when:
+  - event: push
+    #branch: ${CI_REPO_DEFAULT_BRANCH}
+  - event: manual
+
+matrix:
+  include:
+    - HOST: sunhome
+      KNOWN_HOSTS: |
+        # sunhome.atlas-ide.ts.net:22 SSH-2.0-OpenSSH_10.3
+        # sunhome.atlas-ide.ts.net:22 SSH-2.0-OpenSSH_10.3
+        # sunhome.atlas-ide.ts.net:22 SSH-2.0-OpenSSH_10.3
+        sunhome.atlas-ide.ts.net ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCt6z/XPaH0kyK4/ynPsFOQp82csLlNMmRmZENV7PsLu+XvTxZ6buEul253DauuNZNDstXaKvPD4OwQjHplWljIAP1jNWK1OVbyje0kAg5pPtu38zCDUssWreTECpieiWHwHuFQW6gfF40c2hx6RXtACSjOz5uu59bnYfi/ovz7TKkyLDN+ru4Ztr10hnAJyaEAc/EaOhn5JaFHLZCoqb6DVMyyC7u2aqrPpYe7o+h1MRA+8MYzoxmxMb9WwPxo6kxYO6o3y04dV28jMxoYbx07KxA0B78uD1HQE7vVOvQxMBjpxhzotgvuUv4OF0LP6WXw9rIc7tvZvJlAUJWhc4xvVdCeot9ocPmh03y5CB9VvY16oZTVXTTqwr8uFHHIDKCoiY5kNop0LVi8B1WLweXvbb/7a14exRqdr+3rFtyf6LOKFB9+dOXSciomkqQNbIpzzWhryh1pQrPfMcVX02TvjWGHpGtzYk/ReLrZqgcgbSaiGiLIjiVIintk477U9YSVUYr57WP2kKmUzhMVTGRQmCYCewFAVYz7h14G50wGTa5bELlMfG6BHySq9MDCYoIUuGVtYoXgsuTAiiNLhGAt5TrmrQVpn2ignTDB3CUFENrvw2EzxbchGWWQFZHVMbuANphuq2Jvj4BKC32919libU+88SFgiaa2RJA2GmBJuw==
+        # sunhome.atlas-ide.ts.net:22 SSH-2.0-OpenSSH_10.3
+        # sunhome.atlas-ide.ts.net:22 SSH-2.0-OpenSSH_10.3
+        sunhome.atlas-ide.ts.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDJ+67VaBsHroNd2xoC5gC7WkpVnV6UtGd7KSr+ROj+R
+
+steps:
+  - name: deploy-${HOST}
+    image: docker.io/library/alpine:latest
+    environment:
+      ID_ED25519:
+        from_secret: id_ed25519
+    commands:
+      - apk add git openssh
+      - mkdir -p ~/.ssh
+      - echo "$ID_ED25519" > ~/.ssh/id_ed25519
+      - printf ${KNOWN_HOSTS} > ~/.ssh/known_hosts
+      - chmod 700 ~/.ssh
+      - chmod 600 ~/.ssh/*
+      - tmpdir=$(mktemp -u)
+      - rev=$(git rev-parse HEAD)
+      - ssh automata@${HOST}.atlas-ide.ts.net bash -lc "sudo nixos-rebuild switch --flake git+https://github.com/TransCommune/universe.git#$rev"
