@@ -23,7 +23,7 @@
           /magpie/apps/nginxcache
           /magpie/media/TV-Multi
           /magpie/media/Movies-Multi
-          /magpie/apps/attic
+          /apps/attic
         ]
         mut paths = [
           /etc
