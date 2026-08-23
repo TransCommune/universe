@@ -8,9 +8,10 @@
         exit 1
       fi
 
+      set -x RESTIC_REPOSITORY sftp:restic:
+      set -x RESTIC_PASSWORD_FILE /etc/restic-password
+
       exec ${pkgs.restic}/bin/restic \
-        -r sftp:restic: \
-        --password-file /etc/restic-password \
         "$@"
     '';
   };
