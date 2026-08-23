@@ -1,4 +1,22 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  restic-sb = pkgs.writeShellApplication {
+    name = "restic-sb";
+    runtimeInputs = [pkgs.openssh];
+    text = ''
+      if [ "$(id -u)" -ne 0 ]; then
+        echo "restic-sb: must be run as root (uid 0)" >&2
+        exit 1
+      fi
+
+      exec ${pkgs.restic}/bin/restic \
+        -r sftp:restic: \
+        --password-file /etc/restic-password \
+        "$@"
+    '';
+  };
+in {
+  environment.systemPackages = [restic-sb];
+
   systemd.services.restic = {
     unitConfig = {
       Description = "Restic backup job";
@@ -10,7 +28,6 @@
 
       Type = "simple";
       User = "root";
-      Environment = "PATH=${pkgs.openssh}/bin:$PATH";
       ExecStart = pkgs.writeScript "backup" ''
         #!${pkgs.nushell}/bin/nu
 
@@ -46,8 +63,8 @@
 
         # run backups
         for path in $paths {
-          print $"Now backing up: ($path)"
-          do -c { ${pkgs.restic}/bin/restic -r sftp:restic: --password-file /etc/restic-password backup --exclude-caches --iexclude '*cache*' $path }
+          print $"---------------------\nNow backing up: ($path)"
+          do -c { ${restic-sb}/bin/restic-sb backup --exclude-caches --iexclude '*cache*' $path }
           print "\n"
         }
       '';
